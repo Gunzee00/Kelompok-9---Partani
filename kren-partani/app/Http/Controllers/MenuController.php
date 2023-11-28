@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kamar;
-use App\Models\Tiket;
+use App\Models\Produk;
 use Illuminate\Http\Request;
 use App\Models\PesananDetail;
 use Illuminate\Support\Facades\File;
@@ -13,7 +13,7 @@ class MenuController extends Controller
 {
     public function index()
     {
-        $dataMenu = Tiket::paginate(4);
+        $dataMenu = Produk::paginate(4);
         return view('admin.menu.index', [
             "title" => 'Tambah Tiket'
         ], compact('dataMenu'));
@@ -29,24 +29,24 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'jenis_tiket' => 'required',
+            'nama_produk' => 'required',
             'harga' => 'required',
             'keterangan' => 'required',
             'stok' => 'required',
-            'gambar_tiket' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'gambar_produk' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $menu = Tiket::create([
-            'jenis_tiket' => $request->jenis_tiket,
+        $menu = Produk::create([
+            'nama_produk' => $request->nama_produk,
             'harga' => $request->harga,
             'keterangan' => $request->keterangan,
             'stok' => $request->stok,
-            'gambar_tiket' => $request->gambar_tiket,
+            'gambar_produk' => $request->gambar_produk,
         ]);
 
-        if ($request->hasFile('gambar_tiket')) {
-            $request->file('gambar_tiket')->move('productimage/', $request->file('gambar_tiket')->getClientOriginalName());
-            $menu->gambar_tiket = $request->file('gambar_tiket')->getClientOriginalName();
+        if ($request->hasFile('gambar_produk')) {
+            $request->file('gambar_produk')->move('productimage/', $request->file('gambar_produk')->getClientOriginalName());
+            $menu->gambar_produk = $request->file('gambar_produk')->getClientOriginalName();
             $menu->save();
         }
 
@@ -55,7 +55,7 @@ class MenuController extends Controller
 
     public function getUpdate($id)
     {
-        $dataMenuUpdate = Tiket::find($id);
+        $dataMenuUpdate = Produk::find($id);
         return view('admin.menu.edit', [
             "title" => 'Edit Data Menu'
         ], compact('dataMenuUpdate'));
@@ -66,23 +66,23 @@ class MenuController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'jenis_tiket' => 'required',
+            'nama_produk' => 'required',
             'harga' => 'required',
             'keterangan' => 'required',
             'stok' => 'required',
         ]);
-        $update = ['jenis_tiket' => $request->jenis_tiket, 'harga' => $request->harga, 'keterangan' => $request->keterangan, 'stok' => $request->stok];
-        if ($files = $request->file('gambar_tiket')) {
+        $update = ['nama_produk' => $request->nama_produk, 'harga' => $request->harga, 'keterangan' => $request->keterangan, 'stok' => $request->stok];
+        if ($files = $request->file('nama_produk')) {
             $destinationPath = 'productimage/'; // upload path
             $profileImage = date('YmdHis') . "." . $files->getClientOriginalName();
             $files->move($destinationPath, $profileImage);
-            $update['gambar_tiket'] = "$profileImage";
+            $update['nama_produk'] = "$profileImage";
         }
-        $update['jenis_tiket'] = $request->get('jenis_tiket');
+        $update['nama_produk'] = $request->get('nama_produk');
         $update['harga'] = $request->get('harga');
         $update['keterangan'] = $request->get('keterangan');
         $update['stok'] = $request->get('stok');
-        Tiket::where('id', $id)->update($update);
+        Produk::where('id', $id)->update($update);
         return Redirect::to('menu')
             ->with('toast_success', 'Sukses, Tiket berhasil di update');
     }
@@ -98,7 +98,7 @@ class MenuController extends Controller
 
     public function delete($id)
 {
-    $tiket = Tiket::find($id);
+    $produk = Produk::find($id);
 
     // Cek apakah tiket sudah digunakan dalam pesanan
     $pesananDetail = PesananDetail::where('tiket_id', $id)->first();
@@ -106,14 +106,14 @@ class MenuController extends Controller
         return redirect()->route('menu')->with('toast_error', 'Tiket tidak dapat dihapus karena sudah digunakan dalam pesanan.');
     }
 
-    $tiket->delete();
+    $produk->delete();
 
     return redirect()->route('menu')->with('toast_success', 'Tiket berhasil dihapus');
 }
 
     public function menuUser()
     {
-        $dataMenu = Tiket::all();
+        $dataMenu = Produk::all();
        
         $kamar = Kamar::all();
         

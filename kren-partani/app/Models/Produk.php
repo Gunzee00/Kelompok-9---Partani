@@ -6,19 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Tiket extends Model
+class Produk extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $table = 'tiket';
+    protected $table = 'produk';
     protected $dates = ['deleted_at'];
     protected $fillable = [
-        'jenis_tiket',
+        'nama_produk',
         'harga',
         'tanggal_tiket',
         'stok',
         'keterangan',
-        'gambar_tiket',
+        'gambar_produk',
     ];
 
     public function pesanan_detail()

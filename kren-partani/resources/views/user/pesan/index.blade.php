@@ -23,33 +23,33 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="{{ url('productimage') }}/{{ $tiket->gambar_tiket }}" width="445px" alt="">
+                                <img src="{{ url('productimage') }}/{{ $produk->gambar_produk }}" width="445px" alt="">
                             </div>
                             <div class="col-md-6 mt-4">
-                                <h3>{{ $tiket->jenis_tiket }}</h3>
+                                <h3>{{ $produk->nama_produk }}</h3>
                                 <table class="table table-borderless">
-                                    <form action="{{ url('/pesan-process/' . $tiket->id) }}" method="POST">
+                                    <form action="{{ url('/pesan-process/' . $produk->id) }}" method="POST">
                                         <tr>
-                                            <input type="text" hidden name="jenis_tiket"
-                                                value="{{ $tiket->jenis_tiket }}">
+                                            <input type="text" hidden name="nama_produk"
+                                                value="{{ $produk->nama_produk }}">
                                             <input  type="file" hidden name="gambar"
-                                                value="{{ url('productimage') }}/{{ $tiket->gambar }}" id="">
+                                                value="{{ url('productimage') }}/{{ $produk->gambar }}" id="">
                                             <td>Harga</td>
                                             <td>:</td>
-                                            <td>Rp. {{ number_format($tiket->harga) }}</td>
+                                            <td>Rp. {{ number_format($produk->harga) }}</td>
                                         </tr>
                                         <tr>
                                             <td>Stok</td>
                                             <td>:</td>
-                                            <td>{{ $tiket->stok }}</td>
+                                            <td>{{ $produk->stok }}</td>
                                         </tr>
                                         <tr>
                                             <td>Keterangan</td>
                                             <td>:</td>
-                                            <td>{{ $tiket->keterangan }}</td>
+                                            <td>{{ $produk->keterangan }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Tanggal Pemesanan Tiket</td>
+                                            <td>Tanggal Pemesanan Produk</td>
                                             <td>:</td>
                                             <td>
                                                 <input type="date" name="tanggal_tiket" id="" class="form-control" required

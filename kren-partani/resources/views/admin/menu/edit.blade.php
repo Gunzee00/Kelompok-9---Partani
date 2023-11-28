@@ -6,23 +6,23 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Edit Tiket </h4>
+                        <h4 class="card-title">Edit produk </h4>
                         <form action="{{ url('/edit-menu-process/'.$dataMenuUpdate->id) }}" method="POST" enctype="multipart/form-data"
                             class="forms-sample">
                             @csrf
                             <div class="form-group">
-                                <input type="text" name="jenis_tiket" class="form-control" placeholder="Nama Tiket" value="{{ $dataMenuUpdate->jenis_tiket }}">
-                                @error('jenis_tiket')
+                                <input type="text" name="nama_produk" class="form-control" placeholder="Nama Produk" value="{{ $dataMenuUpdate->nama_produk }}">
+                                @error('nama_produk')
                                     <div class="text-danger">
-                                        Masukkan nama tiket 
+                                        Masukkan nama produk 
                                     </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <input type="number" name="harga" class="form-control" placeholder="Harga Tiket" value="{{ $dataMenuUpdate->harga }}">
+                                <input type="number" name="harga" class="form-control" placeholder="Harga Produk" value="{{ $dataMenuUpdate->harga }}">
                                 @error('harga')
                                     <div class="text-danger">
-                                        Masukkan harga tiket 
+                                        Masukkan harga produk 
                                     </div>
                                 @enderror
                             </div>
@@ -31,7 +31,7 @@
                                     placeholder="Keterangan Produk" value="{{ $dataMenuUpdate->keterangan }}">
                                 @error('keterangan')
                                     <div class="text-danger">
-                                        Masukkan keterangan tiket 
+                                        Masukkan keterangan produk 
                                     </div>
                                 @enderror
                             </div>
@@ -40,21 +40,21 @@
                                     placeholder="Stok" value="{{ $dataMenuUpdate->stok }}">
                                 @error('stok')
                                     <div class="text-danger">
-                                        Masukkan stok tiket 
+                                        Masukkan stok Produk 
                                     </div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label>Gambar Produk</label>
-                                <input type="file" name="gambar_tiket" accept="image/*">
-                                @if($dataMenuUpdate->gambar_tiket)
-                                    <img src="productimage/{{ $dataMenuUpdate->gambar_tiket }}" alt="" style="width: 100px; height:100px;" class="d-block">
-                                @elseif(old('gambar_tiket'))
-                                    <img src="productimage/{{ old('gambar_tiket') }}" alt="" style="width: 100px; height:100px;" class="d-block">
+                                <input type="file" name="gambar_produk" accept="image/*">
+                                @if($dataMenuUpdate->gambar_produk)
+                                    <img src="productimage/{{ $dataMenuUpdate->gambar_produk }}" alt="" style="width: 100px; height:100px;" class="d-block">
+                                @elseif(old('gambar_produk'))
+                                    <img src="productimage/{{ old('gambar_produk') }}" alt="" style="width: 100px; height:100px;" class="d-block">
                                 @endif
-                                @error('gambar_tiket')
+                                @error('gambar_produk')
                                     <div class="text-danger">
-                                        Masukkan gambar tiket 
+                                        Masukkan gambar produk 
                                     </div>
                                 @enderror
                             </div>

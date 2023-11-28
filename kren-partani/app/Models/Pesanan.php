@@ -29,7 +29,7 @@ class Pesanan extends Model
 
     public function barangs()
     {
-        return $this->hasOne(Tiket::class, 'id', 'tiket_id');
+        return $this->hasOne(Produk::class, 'id', 'tiket_id');
     }
 
     public function penjualan_tiket()

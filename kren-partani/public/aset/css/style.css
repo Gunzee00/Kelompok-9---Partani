@@ -1234,8 +1234,8 @@ responsive
 }
 
 .btn-primary {
-  border-color: #ed563b;
-  background-color: #ed563b;
+  border-color: #64AA54;
+  background-color: #64AA54;
 }
 
 .btn-primary:not(:disabled):not(.disabled).active, 
@@ -1245,8 +1245,8 @@ responsive
 .btn-primary:active:focus,
 .btn-primary:focus,
 .btn-primary:hover {
-  background-color: #f9735b;
-  border-color: #f9735b;
+  background-color: #64AA54;
+  border-color: #64AA54;
   outline: none;
 }
 

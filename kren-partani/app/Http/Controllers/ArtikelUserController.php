@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Artikel;
+use App\Models\Produk;
 
 class ArtikelUserController extends Controller
 {
@@ -16,15 +17,25 @@ class ArtikelUserController extends Controller
     {
         $artikel = Artikel::all();
         $artikel = Artikel::paginate(6); // 
-        return view('user.artikel.artikel-user', compact('artikel'));
+        
+        return view('user.artikel.artikel-user', compact('artikel', ));
     }
 
     public function indexhome()
     {
-        $artikel = Artikel::latest()->take(3)->get();
-        return view('user.home', compact('artikel'));
+        $dataMenu = Produk::all();
+        return view('user.home', compact( 'dataMenu'));
     }
-
+    // public function menuUser()
+    // {
+    //     $dataMenu = Produk::all();
+       
+    //     $kamar = Kamar::all();
+        
+    //     return view('user.menu', [
+    //         "title" => 'List Menu'
+    //     ], compact('dataMenu','kamar'));
+    // }
     /**
      * Show the form for creating a new resource.
      *

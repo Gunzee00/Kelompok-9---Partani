@@ -43,7 +43,7 @@
                                         @foreach ($dataMenu as $index => $data)
                                             <tr>
                                                 <td class="text-center">{{ $index + $dataMenu->firstItem() }}</td>
-                                                <td class="text-center">{{ $data->jenis_tiket }}</td>
+                                                <td class="text-center">{{ $data->nama_produk }}</td>
                                                 <td class="text-center">{{ $data->harga }}</td>
                                                 <td class="text-center">{{ $data->keterangan }}</td>
                                                 <td class="text-center">
@@ -53,12 +53,12 @@
                                                         {{ $data->stok }}
                                                     @endif
                                                 </td>
-                                                <td class="text-center"><img src="productimage/{{ $data->gambar_tiket }}"
+                                                <td class="text-center"><img src="productimage/{{ $data->gambar_produk }}"
                                                         style="height: 100px; width:100px; align-item:center;"
                                                         alt="produk"></td>
                                                 <td class="text-center">
                                                     {{-- <a href="{{ url('/edit-menu/'.$data->id) }}"><button type="button" class="btn btn-warning btn-icon-text"><i class="ti-reload btn-icon-prepend"></i>Ubah</button></a>
-                                            <a href="{{ url('/delete/'.$data->id) }}"><button type="button" class="btn btn-danger btn-icon-text" data-id={{ $data->id }} data-name={{ $data->jenis_tiket }}><i class="mdi mdi-delete"></i>Hapus</button></a>
+                                            <a href="{{ url('/delete/'.$data->id) }}"><button type="button" class="btn btn-danger btn-icon-text" data-id={{ $data->id }} data-name={{ $data->nama_produk }}><i class="mdi mdi-delete"></i>Hapus</button></a>
                                              --}}
                                                     <a href="{{ url('/edit-menu/' . $data->id) }}"  onclick="return confirm('Apakah Anda yakin ingin mengubah data ini?')">
                                                         <button type="button" class="btn btn-warning btn-icon-text">
@@ -70,7 +70,7 @@
                                                         onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                                                         <button type="button" class="btn btn-danger btn-icon-text"
                                                             data-id="{{ $data->id }}"
-                                                            data-name="{{ $data->jenis_tiket }}">
+                                                            data-name="{{ $data->nama_produk }}">
                                                             <i class="mdi mdi-delete"></i>Hapus
                                                         </button>
                                                     </a>

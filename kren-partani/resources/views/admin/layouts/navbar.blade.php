@@ -22,7 +22,7 @@
     </div>
     <ul class="navbar-nav navbar-right">
         @php
-            $stocks = \DB::select("SELECT * from tiket where stok = '0'");
+            $stocks = \DB::select("SELECT * from produk where stok = '0'");
             $orders = \DB::select("SELECT * from pesanans where status = '2'");
         @endphp
         <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"

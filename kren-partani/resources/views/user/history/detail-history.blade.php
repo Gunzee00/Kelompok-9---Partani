@@ -77,12 +77,12 @@
                                     <tr>
                                         <td>{{ $no++ }}</td>
                                         <td>
-                                            <img src="{{ url('productimage') }}/{{ $pesanan_detail->tiket->gambar_tiket }}"
+                                            <img src="{{ url('productimage') }}/{{ $pesanan_detail->produk->nama_produk }}"
                                                 style="width: 100px; height:100px;" class="card-img-top" alt="product image" />
                                         </td>
-                                        <td>{{ $pesanan_detail->tiket->jenis_tiket }}</td>
+                                        <td>{{ $pesanan_detail->produk->nama_produk }}</td>
                                         <td>{{ $pesanan_detail->jumlah }} buah</td>
-                                        <td>Rp. {{ number_format($pesanan_detail->tiket->harga) }}</td>
+                                        <td>Rp. {{ number_format($pesanan_detail->produk->harga) }}</td>
                                         <td>{{ $pesanan_detail->pesanan->tanggal_tiket }}</td>
                                         <td>Rp. {{ number_format($pesanan_detail->jumlah_harga) }}</td>
                                     </tr>

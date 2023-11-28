@@ -18,22 +18,59 @@
     </div> --}}
 
  {{-- ganti landing page nya --}}
-    <div id="page">
-        <section id="gtco-hero" class="gtco-cover"
-            style="background-image: url(img/sampul.png); background-repeat:no-repeat; background-size:cover; height:100vh;"
-            data-section="home" data-stellar-background-ratio="">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-md-offset-0 text-center">
-                        <div class="display-t">
-                            <div class="display-tc">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+ <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="img/sampul.png" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="img/sampul.png" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="img/sampul.png" alt="Third slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <div class="container">
+    <div class="row">
+      {{-- <h3>Tiket</h3> --}}
+      {{-- <hr></hr> --}}
+      @foreach ($dataMenu as $produk)
+      <div class="card row-sm-4" style="border: 1px solid rgb(1, 1, 1); margin:5px; width:350px; height:auto;justify-content:center; align-items:center;">
+          <div style="position:relative; width:300px; height:200px;">
+              <img src="{{ url('productimage') }}/{{ $produk->gambar_produk }}" class="card-img-top" alt="{{ $produk->gambar_produk }}" style=" width:100%; height:100%; object-fit:scale-down;"/>
+          </div>
+          <div class="card-body">
+              <h5 class="card-title">{{ $produk->nama_produk }}</h5>
+              <p class="card-text">
+                  <strong>Harga :</strong> Rp.{{ number_format($produk->harga) }} <br>
+                  <strong>Stok :</strong> {{ $produk->stok }} <br>
+                  <hr>
+                  <h>Keterangan : {{ $produk->keterangan }}</h> <br>
+              </p>
+              @if($produk->stok <= 0)
+                  <p class="text-danger">*Maaf, stok sudah habis.</p>
+                  <a href="{{ url('pesan') }}/{{ $produk->id }}" class="btn btn-secondaryw disabled"><i class="fas fa-shopping-cart"></i> Pesan</a>
+              @else
+                  <a href="{{ url('pesan') }}/{{ $produk->id }}" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Pesan</a>
+              @endif
+          </div>
+      </div>
+  @endforeach
+  
+    </div>
+   
+
+
+</div>
 
         <!-- ***** Main Banner Area End ***** -->
         <!-- ***** Blog Start ***** -->
@@ -49,20 +86,7 @@
                     </div>
                 </div>
                 <section id="gtco-about" data-section="about">
-                    @foreach ($artikel as $item)
-                    <div class="mt-2" >
-                        <div class="row mb-1">
-                            <div class="col-md">
-                                <img src="{{ url('/image//' . $item->gambar) }}" width="100%;" class="img-responsive" alt="product">
-                            </div>
-                            <div class="col-md">
-                                <h2>{{ $item->judul_artikel }}</h2>
-                                <p class="card-text">{{ $item->tanggal_rilis }}</p>
-                                <p>{{ $item->deskripsi }}
-                                </p>
-                            </div>
-                        </div><br><br><br>
-                        @endforeach
+                    
                         {{-- <div id="maksudtujuan" class="row team-item gtco-team-reverse">
                             <div class="col-md-6  col-md-pull-6 animate-box" data-animate-effect="fadeInRight">
                                 <h2>Kunjungan Jokowi</h2>

@@ -8,28 +8,29 @@
     margin: 5px; /* Sesuaikan nilai margin yang diinginkan di sini */
   }
 </style>
+
     <div class="container">
         <div class="row">
           {{-- <h3>Tiket</h3> --}}
           {{-- <hr></hr> --}}
-          @foreach ($dataMenu as $tiket)
+          @foreach ($dataMenu as $produk)
           <div class="card row-sm-4" style="border: 1px solid rgb(1, 1, 1); margin:5px; width:350px; height:auto;justify-content:center; align-items:center;">
               <div style="position:relative; width:300px; height:200px;">
-                  <img src="{{ url('productimage') }}/{{ $tiket->gambar_tiket }}" class="card-img-top" alt="{{ $tiket->gambar_tiket }}" style=" width:100%; height:100%; object-fit:scale-down;"/>
+                  <img src="{{ url('productimage') }}/{{ $produk->gambar_produk }}" class="card-img-top" alt="{{ $produk->gambar_produk }}" style=" width:100%; height:100%; object-fit:scale-down;"/>
               </div>
               <div class="card-body">
-                  <h5 class="card-title">{{ $tiket->jenis_tiket }}</h5>
+                  <h5 class="card-title">{{ $produk->nama_produk }}</h5>
                   <p class="card-text">
-                      <strong>Harga :</strong> Rp.{{ number_format($tiket->harga) }} <br>
-                      <strong>Stok :</strong> {{ $tiket->stok }} <br>
+                      <strong>Harga :</strong> Rp.{{ number_format($produk->harga) }} <br>
+                      <strong>Stok :</strong> {{ $produk->stok }} <br>
                       <hr>
-                      <h>Keterangan : {{ $tiket->keterangan }}</h> <br>
+                      <h>Keterangan : {{ $produk->keterangan }}</h> <br>
                   </p>
-                  @if($tiket->stok <= 0)
+                  @if($produk->stok <= 0)
                       <p class="text-danger">*Maaf, stok sudah habis.</p>
-                      <a href="{{ url('pesan') }}/{{ $tiket->id }}" class="btn btn-secondaryw disabled"><i class="fas fa-shopping-cart"></i> Pesan</a>
+                      <a href="{{ url('pesan') }}/{{ $produk->id }}" class="btn btn-secondaryw disabled"><i class="fas fa-shopping-cart"></i> Pesan</a>
                   @else
-                      <a href="{{ url('pesan') }}/{{ $tiket->id }}" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Pesan</a>
+                      <a href="{{ url('pesan') }}/{{ $produk->id }}" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Pesan</a>
                   @endif
               </div>
           </div>

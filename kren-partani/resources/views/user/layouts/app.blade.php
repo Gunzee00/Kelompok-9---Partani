@@ -62,34 +62,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Navbar brand -->
                     <a class="navbar-brand mt-2 mt-lg-0" href="{{ url('/') }}"><h5> Partani </h5>   
-                        {{-- <img src="img/logo.jpg" height="45" alt="Caldera Toba" loading="lazy" /> --}}
+                      
                     </a>
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">Beranda</a>
-                        </li> --}}
-                        <li class="nav-item">
-                            <a class="nav-link" href="/list-menu">Beli Kebutuhan</a>
-                        </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/contact') }}">Pesan Tempat</a>
-                        </li> --}}
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="/aboutususer">Article</a>
-                        </li> --}}
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="/user-artikel">Artikel</a>
-                        </li> --}}
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/review') }}">Review</a>
-                        </li> --}}
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/user-galeri') }}">Galeri</a>
-                        </li> --}}
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/image') }}">Gallery</a>
-                        </li> --}}
+                        
                         @if (Auth::check())
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/pesanan') }}">Pesanan</a>
@@ -116,10 +93,7 @@
                     <!-- Icon -->
                     @if (Route::has('login'))
                         @auth
-                            {{-- @php $orders = \DB::select("SELECT * from pesanans where status = 3 and user_id = ".{{ Auth::user()->id }});
-                             $packing = \DB::select("SELECT * from pesanans where status = 4");
-                             $tracking = \DB::select("SELECT * from pesanans where status = 5");
-                        @endphp --}}
+                            
                             @php
                                 $orders = \DB::table('pesanans')
                                     ->where('status', 3)
@@ -209,12 +183,7 @@
                                     <li>
                                         <a class="dropdown-item" href="{{ url('profile') }}">Akun Saya</a>
                                     </li>
-                                    {{-- <li>
-                                        <a class="dropdown-item" href="{{ url('pesanan') }}">Pesanan</a>
-                                    </li> --}}
-                                    {{-- <li>
-                                        <a class="dropdown-item" href="{{ url('/history') }}">History Pesanan</a>
-                                    </li> --}}
+                                    
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -235,7 +204,7 @@
             <!-- Container wrapper -->
         </nav>
         <!-- Navbar -->
-        <main class="py-4" style="margin-bottom: 20px; margin-top: 60px;">
+        <main class="py-0" >
             @yield('content')
         </main>
     </div>

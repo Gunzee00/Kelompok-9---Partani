@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use PDF;
-use App\Models\Tiket;
+use App\Models\Produk;
 use App\Models\Pesanan;
 use Illuminate\Http\Request;
 use App\Models\PesananDetail;

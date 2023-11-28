@@ -11,7 +11,7 @@ class Photo extends Model
 
     use HasFactory;
     protected $fillable = [
-        'gambar_tiket',
+        'gambar_produk',
         'pesanan_id',
     ];
 
