@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2023 at 10:36 AM
+-- Generation Time: Dec 04, 2023 at 04:51 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.9
 
@@ -20,125 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `kren-partani`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `artikel`
---
-
-CREATE TABLE `artikel` (
-  `id_artikel` int(10) UNSIGNED NOT NULL,
-  `tanggal_rilis` timestamp NULL DEFAULT NULL,
-  `gambar` varchar(255) DEFAULT NULL,
-  `deskripsi` text NOT NULL,
-  `judul_artikel` text NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `artikel`
---
-
-INSERT INTO `artikel` (`id_artikel`, `tanggal_rilis`, `gambar`, `deskripsi`, `judul_artikel`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'WhatsApp Image 2023-06-22 at 13.20.37.jpeg', 'Pada akhir bulan Juli, Presiden Jokowi beserta Ibu Negara melakukan kunjungan ke Geopark Kaldera Toba yang terletak di Desa Sigulatti, Kabupaten Samosir. Geopark ini merupakan salah satu tujuan pariwisata yang menjadi ikon di Sumatra Utara, yang menggabungkan keberagaman geologi, hayati, dan budaya. Kawasan ini menawarkan keindahan alam Kaldera Danau Toba yang spektakuler, serta berbagai situs purba yang ditemukan di sekitarnya.\r\n\r\nPresiden Jokowi dan Ibu Negara merasakan langsung keajaiban alam dan kekayaan budaya yang terdapat di Geopark Kaldera Toba. Mereka dapat menyaksikan pemandangan yang menakjubkan, termasuk keindahan Danau Toba yang melingkupi kaldera raksasa yang terbentuk dari letusan gunung berapi purba. Selain itu, kawasan ini juga menyimpan beragam flora dan fauna yang unik dan langka.', 'Kedatangan Jokowi', NULL, NULL),
-(2, NULL, 'WhatsApp Image 2023-06-22 at 13.26.15.jpeg', 'Jalan-jalan ke Danau Toba tidak lagi hanya sebatas menikmati keindahan danau, tetapi sekarang wisatawan memiliki destinasi wisata baru yang sangat layak untuk dikunjungi, yaitu The Kaldera Toba Nomadic Escape. Tempat ini terletak di Lahan Zona Otorita Pariwisata Danau Toba, Desa Sibisa, Kecamatan Ajibata, Kabupaten Toba Samosir, Sumatra Utara (Sumut). The Kaldera Toba menawarkan pengalaman menginap di udara terbuka dengan konsep Glamour Camping (Glamping) yang mewah.\r\n\r\nThe Kaldera Toba adalah tempat yang memadukan keindahan alam dan kenyamanan modern. Dengan pemandangan luar biasa dan suasana yang tenang, wisatawan dapat menikmati sensasi berkemah yang unik namun tetap dengan fasilitas dan kenyamanan yang berkualitas. Konsep Glamour Camping (Glamping) memungkinkan para tamu untuk menginap di tenda-tenda yang didesain dengan sangat apik, lengkap dengan tempat tidur yang nyaman, perabotan mewah, dan fasilitas modern seperti kamar mandi pribadi.', 'Fasilitas Kaldera Toba Sibisa', NULL, NULL),
-(3, NULL, 'WhatsApp Image 2023-06-22 at 13.27.09.jpeg', 'Selain itu, Kaldera Stage juga dilengkapi dengan berbagai fasilitas tambahan yang akan membuat pengalaman wisatawan semakin lengkap. Salah satu fasilitas yang tersedia adalah ampitheatre yang dapat menampung hingga 300 orang. Tempat ini sangat cocok bagi wisatawan yang ingin menikmati keindahan danau serta sekitarnya sambil menikmati pertunjukan musik live bersama orang-orang terdekat mereka. Suasana yang tercipta di ampitheatre ini memberikan pengalaman yang unik dan tak terlupakan.\r\n\r\nSelain ampitheatre, Kaldera Stage juga menyediakan fasilitas area parkir khusus untuk campervan. Hal ini sangat menguntungkan bagi wisatawan yang ingin menginap di Kaldera Toba sambil membawa campervan mereka sendiri. Dengan adanya area parkir yang disediakan, wisatawan dapat dengan mudah dan nyaman menginap di Kaldera Toba tanpa harus khawatir mencari tempat parkir untuk campervannya. Fasilitas ini memberikan kebebasan dan kenyamanan bagi wisatawan yang ingin menjelajahi Danau Toba dengan menggunakan campervan sebagai sarana transportasi mereka.', 'Kaldera Stage', NULL, NULL),
-(4, NULL, 'WhatsApp Image 2023-06-22 at 13.33.02.jpeg', 'Lokasi Bobocabin (Bobocabin Signature Toba) berada di kawasan The Kaldera, salah satu obyek wisata bertema nomadic tourism yang dikelola oleh Badan Pelaksana Otorita Danau Toba di Kecamatan Ajibata, Kabupaten Toba Samosir, Sumatera Utara.\r\n\r\n\"Pembangunan hotel (Bobocabin) tersebut merupakan salah satu Langkah percepatan pemulihan sektor pariwisata dan ekonomi kreatif mengingat Danau Toba merupakan salah satu dari Destinasi Super Prioritas', 'Bobocabin', NULL, NULL),
-(5, NULL, '1693615730.jpg', 'dsadsa', 'sadsa', NULL, NULL),
-(6, NULL, '1693615741.png', 'asdas', 'asli', NULL, NULL),
-(7, NULL, '1693616422.png', 'sadasd', 'test11', NULL, NULL),
-(8, NULL, '1693618621.jpg', 'ASDA', 'HAI', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `data_pengunjung`
---
-
-CREATE TABLE `data_pengunjung` (
-  `id_data` int(11) NOT NULL,
-  `nama_pengunjung` varchar(32) NOT NULL,
-  `nik` varchar(16) NOT NULL,
-  `tempat_tinggal` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `data_pengunjung`
---
-
-INSERT INTO `data_pengunjung` (`id_data`, `nama_pengunjung`, `nik`, `tempat_tinggal`) VALUES
-(2, 'silpa', '11421056', 'Kamboja'),
-(3, 'Gunawan', '008322244', 'Laguboti'),
-(5, 'Anita Munthe', '11421048', 'Laguboti');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `etikets`
---
-
-CREATE TABLE `etikets` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `galeri`
---
-
-CREATE TABLE `galeri` (
-  `id_galeri` int(11) NOT NULL,
-  `judul_galeri` text NOT NULL,
-  `gambar_galeri` varchar(200) NOT NULL,
-  `deskripsi_galeri` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `galeri`
---
-
-INSERT INTO `galeri` (`id_galeri`, `judul_galeri`, `gambar_galeri`, `deskripsi_galeri`) VALUES
-(5, 'Atraksi baru Caldera Toba Sibisa', '1686888034.jpg', 'Wisatawan juga bisa menikmati Helitour keliling Geopark Toba'),
-(6, 'Decak Kagum Wisatawan', '1686888067.jpg', 'Wisatawan Kagumi Pemandangan Alam dengan Suguhan Lantunan Musik di TCR Sibisa'),
-(7, 'Atraksi Baru di The Kaldera Toba Nomadic Escape', '1686888110.jpg', 'Badan Pelaksana Otorita Danau Toba telah menyiapkan atraksi Panggung Tala Toba, sebagai tontonan pengunjung'),
-(8, 'Peresmian The Caldera Toba Sibisa', '1686888148.jpg', 'Nikmati Sensasi Healing Sekitar Danau di Kaldera Toba!'),
-(9, 'Sensasi Foto Prewedding di Caldera Toba Sibisa', '1686888175.jpg', 'Menikmati Sensasi Glamping Mewah di The Kaldera Toba, Penginapan Bertema Alam di Pinggir Danau – Informasi Lokasi & Fasilitas!'),
-(10, 'Kegiatan Nonton Bareng', 'glr_11.jpg', 'Meriahkan F1 Powerboat Toba 2023, BPODT Gelar Nobar di Toba Caldera Resort'),
-(11, 'Menyaksikan Danau Toba dari Kaldera', '1686888232.jpg', 'Panorama indah Danau Toba menjadi kawasan yang kini diincar wisatawan untuk melihat eksotisme Indonesia'),
-(12, 'Bobocabin Sensasi Camping Mewah di Kaldera Toba', '1686888284.jpg', 'Bobocabin Glamour Camping (Glamping) di beberapa sudut area The Kaldera Toba Nomadic Escape, merupakan cara baru menikmati alam Danau Toba.'),
-(13, 'Spot Jokowi', '1686888309.jpg', 'Presiden Jokowi Kunjungi The Kaldera Toba Nomadic Escape'),
-(15, 'Galeri 1', '1687249277.png', 'Ini caldera Toba');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kamar`
---
-
-CREATE TABLE `kamar` (
-  `id_kamar` int(20) NOT NULL,
-  `nama_kamar` text NOT NULL,
-  `gambar_kamar` varchar(200) NOT NULL,
-  `deskripsi` text NOT NULL,
-  `nomor_telepon` varchar(20) NOT NULL,
-  `status` varchar(32) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `kamar`
---
-
-INSERT INTO `kamar` (`id_kamar`, `nama_kamar`, `gambar_kamar`, `deskripsi`, `nomor_telepon`, `status`) VALUES
-(29, 'Bell Tent: kamar 2', 'WhatsApp Image 2023-06-19 at 10.00.31 (2).jpeg', 'Bell Tent yang ada di kamar adalah tenda yang memiliki fasilitas hotel bintang 5. Jadi, jika wisatawan berada di dalamnya, wisatawan tetap mendapatkan kenyamanan layaknya menginap di hotel berbintang. Tetapi saat keluar kamar, wisata akan mendapatkan view alam Danau Toba yang sangat eksotis.  Pada kamar 2 ini menyediakan tiga kasur untuk penggunaannya. Kamar dua ini sangat cocok digunakan saat bulan madu.', '628126041630', 'Tersedia'),
-(30, 'Bell Tent: Kamar 3', '1687227450.jpg', 'Bell Tent yang ada di kamar adalah tenda yang memiliki fasilitas hotel bintang 5. Jadi, jika wisatawan berada di dalamnya, wisatawan tetap mendapatkan kenyamanan layaknya menginap di hotel berbintang. Tetapi saat keluar kamar, wisata akan mendapatkan view alam Danau Toba yang sangat eksotis.  Pada kamar 3 ini menyediakan tiga kasur untuk penggunaannya.', '628126041630', 'tersedia'),
-(31, 'Bell Tent: Kamar 4', '1687227578.jpg', 'Bell Tent yang ada di kamar adalah tenda yang memiliki fasilitas hotel bintang 5. Jadi, jika wisatawan berada di dalamnya, wisatawan tetap mendapatkan kenyamanan layaknya menginap di hotel berbintang. Tetapi saat keluar kamar, wisata akan mendapatkan view alam Danau Toba yang sangat eksotis.  Pada kamar 4 ini menyediakan tiga kasur untuk penggunaannya.', '628126041630', 'tersedia'),
-(32, 'Bell Tent: Kamar 5', 'WhatsApp Image 2023-06-19 at 10.00.31.jpeg', 'Bell Tent yang ada di kamar adalah tenda yang memiliki fasilitas hotel bintang 5. Jadi, jika wisatawan berada di dalamnya, wisatawan tetap mendapatkan kenyamanan layaknya menginap di hotel berbintang. Tetapi saat keluar kamar, wisata akan mendapatkan view alam Danau Toba yang sangat eksotis.  Pada kamar 5 ini menyediakan tiga kasur untuk penggunaannya.', '628126041630', 'Tersedia'),
-(33, 'Bell Tent: Kamar 6', '1687227818.jpg', 'Bell Tent yang ada di kamar adalah tenda yang memiliki fasilitas hotel bintang 5. Jadi, jika wisatawan berada di dalamnya, wisatawan tetap mendapatkan kenyamanan layaknya menginap di hotel berbintang. Tetapi saat keluar kamar, wisata akan mendapatkan view alam Danau Toba yang sangat eksotis.  Pada kamar 6 ini menyediakan tiga kasur untuk penggunaannya.', '628126041630', 'tersedia');
 
 -- --------------------------------------------------------
 
@@ -289,7 +170,9 @@ INSERT INTO `pesanans` (`id`, `user_id`, `tanggal_pemesanan`, `status`, `kode`, 
 (107, 30, '2023-11-14', '3', 1305, 20000, '0.jpeg', '2023-11-15', 16, 1, '2023-11-13 23:53:22', '2023-11-13 23:55:20'),
 (108, 29, '2023-11-16', '4', 9321, 30000, 'chart.png', '2023-11-24', 17, 1, '2023-11-16 01:48:36', '2023-11-16 01:54:12'),
 (109, 29, '2023-11-16', '1', 8259, 20000, '', '2023-11-30', 16, 1, '2023-11-16 01:50:24', '2023-11-16 01:50:30'),
-(110, 30, '2023-11-21', '2', 1781, 20000, 'chart.png', '2023-11-23', 16, 1, '2023-11-20 23:43:16', '2023-11-20 23:44:00');
+(110, 30, '2023-11-21', '6', 1781, 20000, 'chart.png', '2023-11-23', 16, 1, '2023-11-20 23:43:16', '2023-11-28 00:32:48'),
+(111, 23, '2023-11-28', '2', 8266, 2000000, 'Diagram Tanpa Judul.drawio.png', '2023-11-30', 18, 1, '2023-11-27 23:30:41', '2023-11-28 00:30:29'),
+(112, 23, '2023-11-28', '0', 1689, 2000000, '', '2023-11-30', 17, 1, '2023-11-28 01:08:24', '2023-11-28 01:08:24');
 
 -- --------------------------------------------------------
 
@@ -339,18 +222,20 @@ INSERT INTO `pesanan_details` (`id`, `tiket_id`, `pesanan_id`, `jumlah`, `jumlah
 (131, 16, 107, 1, 20000, '2023-11-13 23:53:22', '2023-11-13 23:53:22'),
 (132, 17, 108, 1, 30000, '2023-11-16 01:48:36', '2023-11-16 01:48:36'),
 (133, 16, 109, 1, 20000, '2023-11-16 01:50:24', '2023-11-16 01:50:24'),
-(134, 16, 110, 1, 20000, '2023-11-20 23:43:16', '2023-11-20 23:43:16');
+(134, 16, 110, 1, 20000, '2023-11-20 23:43:16', '2023-11-20 23:43:16'),
+(135, 18, 111, 2, 2000000, '2023-11-27 23:30:41', '2023-11-28 00:30:16'),
+(136, 17, 112, 1, 2000000, '2023-11-28 01:08:24', '2023-11-28 01:08:24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tiket`
+-- Table structure for table `produk`
 --
 
-CREATE TABLE `tiket` (
+CREATE TABLE `produk` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `jenis_tiket` varchar(64) NOT NULL,
-  `gambar_tiket` varchar(255) NOT NULL,
+  `nama_produk` varchar(64) NOT NULL,
+  `gambar_produk` varchar(255) NOT NULL,
   `harga` int(20) NOT NULL,
   `stok` int(20) NOT NULL,
   `keterangan` varchar(255) NOT NULL,
@@ -360,10 +245,10 @@ CREATE TABLE `tiket` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tiket`
+-- Dumping data for table `produk`
 --
 
-INSERT INTO `tiket` (`id`, `jenis_tiket`, `gambar_tiket`, `harga`, `stok`, `keterangan`, `deleted_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO `produk` (`id`, `nama_produk`, `gambar_produk`, `harga`, `stok`, `keterangan`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 'Panci', '20230606064636.WhatsApp Image 2023-05-30 at 13.58.08.jpeg', 3423242, 9, 'sadadsdf', '2023-06-05 23:47:37', '2023-05-01 07:36:42', '2023-06-05 23:47:37'),
 (2, 'sadas', 'image (1).png', 21, 12, 'sadsad', '2023-05-19 00:58:55', '2023-05-19 00:55:11', '2023-05-19 00:58:55'),
 (3, 'Dewasa', 'wallhaven-vqz7qm_1920x1080.png', 15000, 95, '18 tahun ke atas', '2023-06-05 22:46:54', '2023-05-19 00:59:48', '2023-06-05 22:46:54'),
@@ -380,11 +265,12 @@ INSERT INTO `tiket` (`id`, `jenis_tiket`, `gambar_tiket`, `harga`, `stok`, `kete
 (15, 'Remaja', '20230615090740.Gunawan Sinaga.png', 15000, 100, 'Dapat digunakan oleh anak umur 10 tahun sampai umur 16', '2023-06-15 20:36:24', '2023-06-14 21:12:44', '2023-06-15 20:36:24'),
 (16, 'Cabai merah / 1000kg', '20231121083312.chart.png', 20000, 100, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2023-06-15 20:40:58', '2023-11-21 01:33:13'),
 (17, 'Bawang Merah / 1000 kg', '20231121083425.pngwing.com (3).png', 2000000, 100, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2023-06-15 20:42:19', '2023-11-21 01:34:25'),
-(18, 'Andaliman / 50Kg', '20231121084210.wallhaven-ex21vr_1920x1080.png', 1000000, 100, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', NULL, '2023-06-15 20:43:18', '2023-11-21 01:42:48'),
+(18, 'Andaliman / 50Kg', '20231121084210.wallhaven-ex21vr_1920x1080.png', 1000000, 98, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', NULL, '2023-06-15 20:43:18', '2023-11-28 00:30:22'),
 (19, 'Wortel/ 50Kg', '20231121084331.gambar.jpg', 50000000, 100, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', NULL, '2023-06-15 20:43:55', '2023-11-21 01:49:43'),
 (21, 'adasd', 'glr_1.jpeg', 12, 1, '2ad', '2023-06-18 07:56:47', '2023-06-18 06:51:39', '2023-06-18 07:56:47'),
 (22, 'asdasasd', 'pelajar.jpeg', 123, 12, 'sadasd', '2023-06-19 07:16:32', '2023-06-19 07:16:27', '2023-06-19 07:16:32'),
-(23, 'Tiket Pelajar', 'WhatsApp Image 2023-06-16 at 10.57.05.jpeg', 15000, 100, 'di gunakan oleh pelajar', '2023-06-21 23:30:20', '2023-06-20 01:24:35', '2023-06-21 23:30:20');
+(23, 'Tiket Pelajar', 'WhatsApp Image 2023-06-16 at 10.57.05.jpeg', 15000, 100, 'di gunakan oleh pelajar', '2023-06-21 23:30:20', '2023-06-20 01:24:35', '2023-06-21 23:30:20'),
+(24, 'test', 'WhatsApp Image 2023-11-22 at 09.20.35.jpeg', 1231, 12, 'sadas', NULL, '2023-11-28 00:18:55', '2023-11-28 00:18:55');
 
 -- --------------------------------------------------------
 
@@ -411,7 +297,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `usertype`, `email_verified_at`, `password`, `avatar`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', '1', NULL, '$2y$10$c8vuOHKVJUvWWwE3a4JWyeKbq5z5ddqlcpwxyT7cUvhtyHA/I7Ski', NULL, 'PQN9s0KcpBJoBovdSEdBAzyXjt1hL0j5rAIquUJaj6lVaNXqjNjY29GO9sip', '2023-05-01 07:26:54', '2023-11-16 01:56:22', NULL),
+(1, 'Admin', 'admin@gmail.com', '1', NULL, '$2y$10$c8vuOHKVJUvWWwE3a4JWyeKbq5z5ddqlcpwxyT7cUvhtyHA/I7Ski', NULL, 'xIFGZmMAQCpPNoyrg439gVbtNnwaWOdTOvLaujiN3cJMWQ36Mht3FODfG15p', '2023-05-01 07:26:54', '2023-11-16 01:56:22', NULL),
 (12, 'adminisitrator', 'administrator@gmail.com', '2', NULL, '$2y$10$aqmphxWtdmLNXw.lDq6GBOfnzOuv9/pcS5TXFqihPNF.tpqfqPV.O', NULL, '90F2qQP9psz2GeOGCVSaryy6UUZPEjaKk3uazGqy8wyNuFUfcQhnbWKlhH3V', '2023-06-13 21:15:20', '2023-06-13 21:15:20', NULL),
 (16, 'gunawan sinaga', 'gunawansinaga@gmail.com', '0', NULL, '$2y$10$X6O0.jQNzgVFmZbpyUIJzuOfIJx2Q.HT6PQpNcitW7UtrKXB6BOqW', 'favicon-96x96.png', NULL, '2023-06-15 21:16:34', '2023-06-18 08:50:35', NULL),
 (17, 'anita', 'anita@gmail.com', '0', NULL, '$2y$10$2I.38yyuus9.S0gf84Bfv.uh/pfqV8vTJZ1kTsPWh8AJey1RLqR2m', NULL, 'Tjwd2SrOo5ACUrktmOsugIoOyDRrTZRTJMyLdFv3ajFLGDtMjAwV5qDZZHDe', '2023-06-17 02:13:22', '2023-06-17 02:13:22', NULL),
@@ -433,36 +319,6 @@ INSERT INTO `users` (`id`, `name`, `email`, `usertype`, `email_verified_at`, `pa
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `artikel`
---
-ALTER TABLE `artikel`
-  ADD PRIMARY KEY (`id_artikel`);
-
---
--- Indexes for table `data_pengunjung`
---
-ALTER TABLE `data_pengunjung`
-  ADD PRIMARY KEY (`id_data`);
-
---
--- Indexes for table `etikets`
---
-ALTER TABLE `etikets`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `galeri`
---
-ALTER TABLE `galeri`
-  ADD PRIMARY KEY (`id_galeri`);
-
---
--- Indexes for table `kamar`
---
-ALTER TABLE `kamar`
-  ADD PRIMARY KEY (`id_kamar`);
 
 --
 -- Indexes for table `migrations`
@@ -504,9 +360,9 @@ ALTER TABLE `pesanan_details`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tiket`
+-- Indexes for table `produk`
 --
-ALTER TABLE `tiket`
+ALTER TABLE `produk`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -519,36 +375,6 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `artikel`
---
-ALTER TABLE `artikel`
-  MODIFY `id_artikel` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `data_pengunjung`
---
-ALTER TABLE `data_pengunjung`
-  MODIFY `id_data` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `etikets`
---
-ALTER TABLE `etikets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `galeri`
---
-ALTER TABLE `galeri`
-  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT for table `kamar`
---
-ALTER TABLE `kamar`
-  MODIFY `id_kamar` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -572,19 +398,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `pesanans`
 --
 ALTER TABLE `pesanans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `pesanan_details`
 --
 ALTER TABLE `pesanan_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
 
 --
--- AUTO_INCREMENT for table `tiket`
+-- AUTO_INCREMENT for table `produk`
 --
-ALTER TABLE `tiket`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+ALTER TABLE `produk`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `users`
