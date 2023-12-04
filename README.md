@@ -7,4 +7,6 @@ Import database terlebih dahulu
 composer install
 php artisan key:generate NOTE: Tidak perlu di migrate
 
+import database yang telah di sediakan 
+
 untuk run:php artisan serve
