@@ -52,8 +52,8 @@
                                             <td>Tanggal Pemesanan Produk</td>
                                             <td>:</td>
                                             <td>
-                                                <input type="date" name="tanggal_tiket" id="" class="form-control" required
-                                                    value="{{ old('tanggal_tiket') }}" min="{{ date('Y-m-d') }}"></input>
+                                                <input type="date" name="tanggal_produk_diperlukan" id="" class="form-control" required
+                                                    value="{{ old('tanggal_produk_diperlukan') }}" min="{{ date('Y-m-d') }}"></input>
                                             </td>
                                         </tr>
                                         <tr>

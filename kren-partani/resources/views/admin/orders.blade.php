@@ -38,7 +38,7 @@
                                             {{-- <td>{{ $data->kode }}</td> --}}
                                         <td>Rp{{ number_format($data->jumlah_harga, 0, ',', '.') }}</td>
                                         <td>{{ $data->updated_at->isoFormat('dddd, D MMM Y') }}</td>
-                                        <td>{{ $data->tanggal_tiket }}</td>
+                                        <td>{{ $data->tanggal_produk_diperlukan }}</td>
                                         {{-- <td>
                                             <a href="{{ route('order.detail', ['id' => $data->id]) }}" class="nav-link">
                                                 <i class="fas fa-eye"></i>

@@ -50,7 +50,7 @@
                                     <td>{{ $pesanan_detail->produk->nama_produk }}</td>
                                     <td>{{ $pesanan_detail->jumlah }} buah</td>
                                     <td>Rp. {{ number_format($pesanan_detail->produk->harga) }}</td>
-                                    <td>{{ $pesanan_detail->pesanan->tanggal_tiket }}</td>
+                                    <td>{{ $pesanan_detail->pesanan->tanggal_produk_diperlukan }}</td>
                                     <td>Rp. {{ number_format($pesanan_detail->jumlah_harga) }}</td>
                                     <td>
                                         <form action="{{ url('check-out') }}/{{ $pesanan_detail->id }}" method="post">

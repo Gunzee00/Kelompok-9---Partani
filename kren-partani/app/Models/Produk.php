@@ -15,7 +15,7 @@ class Produk extends Model
     protected $fillable = [
         'nama_produk',
         'harga',
-        'tanggal_tiket',
+        'tanggal_produk_diperlukan',
         'stok',
         'keterangan',
         'gambar_produk',
@@ -23,7 +23,7 @@ class Produk extends Model
 
     public function pesanan_detail()
     {
-        return $this->belongTo('App\PesananDetail', 'tiket_id', 'id');
+        return $this->belongTo('App\PesananDetail', 'produk_id', 'id');
     }
 
     public function pesanan()

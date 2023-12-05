@@ -26,7 +26,7 @@
                         <h>Dapat digunakan <strong>{{ $pesanan_detail->jumlah }} orang</h></strong><br>
 
                         {{-- <h4>Berlaku untuk satu orang satu kali masuk</h4> --}}
-                        <h>pada tanggal: <strong> {{ $pesanan_detail->pesanan->tanggal_tiket }}</h></strong><br>
+                        <h>pada tanggal: <strong> {{ $pesanan_detail->pesanan->tanggal_produk_diperlukan }}</h></strong><br>
 
                         <h>Peraturan Direktur Utama</h><br>
                         <h>Badan Pelaksanaan Otorita Danau Toba Nomor 1 Tahun 2021</h><br>

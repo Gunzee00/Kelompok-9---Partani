@@ -23,7 +23,7 @@ class PesananDetail extends Model
 
       public function produk()
       {
-            return $this->belongsTo('App\Models\Produk', 'tiket_id', 'id');
+            return $this->belongsTo('App\Models\Produk', 'produk_id', 'id');
       }
 
       public function pesanan()

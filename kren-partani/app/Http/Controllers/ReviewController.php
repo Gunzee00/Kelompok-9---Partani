@@ -52,7 +52,7 @@ class ReviewController extends Controller
         $review = new Review();
         $review->pesanan_id = $pesanan->id;
         $review->user_id = Auth::user()->id;
-        $review->tiket_id = $request->tiket_id;
+        $review->produk_id = $request->produk_id;
         $review->review = $request->review;
         if($request->hasFile('img2')) {
             $request->file('img2')->move('productimage/', $request->file('img2')->getClientOriginalName());

@@ -29,7 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         // $dataCustomers = User::all()->where('usertype', 0);
-        $artikel = Artikel::latest()->take(3)->get();
+        // $artikel = Artikel::latest()->take(3)->get();
 
         $usertype = Auth::user()->usertype;
         if ($usertype == '1') {

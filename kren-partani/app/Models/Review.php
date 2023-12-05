@@ -20,6 +20,6 @@ class Review extends Model
 
     public function barangs()
     {
-        return $this->hasOne(Barang::class, 'id', 'tiket_id');
+        return $this->hasOne(Barang::class, 'id', 'produk_id');
     }
 }

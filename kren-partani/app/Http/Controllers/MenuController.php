@@ -101,7 +101,7 @@ class MenuController extends Controller
     $produk = Produk::find($id);
 
     // Cek apakah tiket sudah digunakan dalam pesanan
-    $pesananDetail = PesananDetail::where('tiket_id', $id)->first();
+    $pesananDetail = PesananDetail::where('produk_id', $id)->first();
     if ($pesananDetail) {
         return redirect()->route('menu')->with('toast_error', 'Tiket tidak dapat dihapus karena sudah digunakan dalam pesanan.');
     }
