@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2023 at 04:51 AM
+-- Generation Time: Dec 05, 2023 at 09:48 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.9
 
@@ -134,8 +134,8 @@ CREATE TABLE `pesanans` (
   `kode` int(11) NOT NULL,
   `jumlah_harga` int(11) NOT NULL,
   `bukti_pembayaran` varchar(255) NOT NULL DEFAULT '',
-  `tanggal_tiket` text NOT NULL,
-  `tiket_id` int(11) NOT NULL,
+  `tanggal_produk_diperlukan` text NOT NULL,
+  `produk_id` int(11) NOT NULL,
   `jumlah_pesan` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -145,7 +145,7 @@ CREATE TABLE `pesanans` (
 -- Dumping data for table `pesanans`
 --
 
-INSERT INTO `pesanans` (`id`, `user_id`, `tanggal_pemesanan`, `status`, `kode`, `jumlah_harga`, `bukti_pembayaran`, `tanggal_tiket`, `tiket_id`, `jumlah_pesan`, `created_at`, `updated_at`) VALUES
+INSERT INTO `pesanans` (`id`, `user_id`, `tanggal_pemesanan`, `status`, `kode`, `jumlah_harga`, `bukti_pembayaran`, `tanggal_produk_diperlukan`, `produk_id`, `jumlah_pesan`, `created_at`, `updated_at`) VALUES
 (86, 16, '2023-06-19', '4', 3505, 30000, 'WhatsApp Image 2023-06-18 at 22.23.23.jpeg', '2023-06-22', 17, 1, '2023-06-18 19:14:02', '2023-06-18 20:30:45'),
 (87, 16, '2023-06-19', '4', 5415, 20000, 'WhatsApp Image 2023-06-19 at 09.34.07.jpeg', '2023-06-20', 16, 1, '2023-06-18 19:34:45', '2023-06-19 00:19:14'),
 (88, 16, '2023-06-19', '4', 6725, 5000, 'image (1).png', '2023-06-29', 19, 1, '2023-06-18 23:48:39', '2023-06-19 00:28:40'),
@@ -172,7 +172,7 @@ INSERT INTO `pesanans` (`id`, `user_id`, `tanggal_pemesanan`, `status`, `kode`, 
 (109, 29, '2023-11-16', '1', 8259, 20000, '', '2023-11-30', 16, 1, '2023-11-16 01:50:24', '2023-11-16 01:50:30'),
 (110, 30, '2023-11-21', '6', 1781, 20000, 'chart.png', '2023-11-23', 16, 1, '2023-11-20 23:43:16', '2023-11-28 00:32:48'),
 (111, 23, '2023-11-28', '2', 8266, 2000000, 'Diagram Tanpa Judul.drawio.png', '2023-11-30', 18, 1, '2023-11-27 23:30:41', '2023-11-28 00:30:29'),
-(112, 23, '2023-11-28', '0', 1689, 2000000, '', '2023-11-30', 17, 1, '2023-11-28 01:08:24', '2023-11-28 01:08:24');
+(112, 23, '2023-11-28', '3', 1689, 2040000, 'WhatsApp Image 2023-11-24 at 08.31.12.jpeg', '2023-11-30', 17, 1, '2023-11-28 01:08:24', '2023-12-05 00:54:00');
 
 -- --------------------------------------------------------
 
@@ -182,7 +182,7 @@ INSERT INTO `pesanans` (`id`, `user_id`, `tanggal_pemesanan`, `status`, `kode`, 
 
 CREATE TABLE `pesanan_details` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tiket_id` int(20) NOT NULL,
+  `produk_id` int(20) NOT NULL,
   `pesanan_id` int(20) NOT NULL,
   `jumlah` int(20) NOT NULL,
   `jumlah_harga` int(20) NOT NULL,
@@ -194,7 +194,7 @@ CREATE TABLE `pesanan_details` (
 -- Dumping data for table `pesanan_details`
 --
 
-INSERT INTO `pesanan_details` (`id`, `tiket_id`, `pesanan_id`, `jumlah`, `jumlah_harga`, `created_at`, `updated_at`) VALUES
+INSERT INTO `pesanan_details` (`id`, `produk_id`, `pesanan_id`, `jumlah`, `jumlah_harga`, `created_at`, `updated_at`) VALUES
 (106, 18, 85, 1, 10000, '2023-06-18 19:10:10', '2023-06-18 19:10:10'),
 (107, 17, 86, 1, 30000, '2023-06-18 19:14:02', '2023-06-18 19:14:02'),
 (108, 16, 87, 1, 20000, '2023-06-18 19:34:45', '2023-06-18 19:34:45'),
@@ -224,7 +224,8 @@ INSERT INTO `pesanan_details` (`id`, `tiket_id`, `pesanan_id`, `jumlah`, `jumlah
 (133, 16, 109, 1, 20000, '2023-11-16 01:50:24', '2023-11-16 01:50:24'),
 (134, 16, 110, 1, 20000, '2023-11-20 23:43:16', '2023-11-20 23:43:16'),
 (135, 18, 111, 2, 2000000, '2023-11-27 23:30:41', '2023-11-28 00:30:16'),
-(136, 17, 112, 1, 2000000, '2023-11-28 01:08:24', '2023-11-28 01:08:24');
+(136, 17, 112, 1, 2000000, '2023-11-28 01:08:24', '2023-11-28 01:08:24'),
+(137, 16, 112, 2, 40000, '2023-12-05 00:49:03', '2023-12-05 00:49:03');
 
 -- --------------------------------------------------------
 
@@ -263,8 +264,8 @@ INSERT INTO `produk` (`id`, `nama_produk`, `gambar_produk`, `harga`, `stok`, `ke
 (12, 'Remaja', 'LOGO1 (1).jpg', 5000, 86, 'Dapat digunakan oleh anak umur 10 tahun sampai umur 16', '2023-06-15 20:34:31', '2023-06-10 05:55:16', '2023-06-15 20:34:31'),
 (13, 'Manca Negara', 'book 3.jpg', 10000, 78, 'Tiket ini dapat digunakan oleh turis', '2023-06-15 20:34:35', '2023-06-10 06:00:20', '2023-06-15 20:34:35'),
 (15, 'Remaja', '20230615090740.Gunawan Sinaga.png', 15000, 100, 'Dapat digunakan oleh anak umur 10 tahun sampai umur 16', '2023-06-15 20:36:24', '2023-06-14 21:12:44', '2023-06-15 20:36:24'),
-(16, 'Cabai merah / 1000kg', '20231121083312.chart.png', 20000, 100, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2023-06-15 20:40:58', '2023-11-21 01:33:13'),
-(17, 'Bawang Merah / 1000 kg', '20231121083425.pngwing.com (3).png', 2000000, 100, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2023-06-15 20:42:19', '2023-11-21 01:34:25'),
+(16, 'Cabai merah / 1000kg', '20231121083312.chart.png', 20000, 98, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2023-06-15 20:40:58', '2023-12-05 00:49:09'),
+(17, 'Bawang Merah / 1000 kg', '20231121083425.pngwing.com (3).png', 2000000, 99, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2023-06-15 20:42:19', '2023-12-05 00:49:09'),
 (18, 'Andaliman / 50Kg', '20231121084210.wallhaven-ex21vr_1920x1080.png', 1000000, 98, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', NULL, '2023-06-15 20:43:18', '2023-11-28 00:30:22'),
 (19, 'Wortel/ 50Kg', '20231121084331.gambar.jpg', 50000000, 100, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', NULL, '2023-06-15 20:43:55', '2023-11-21 01:49:43'),
 (21, 'adasd', 'glr_1.jpeg', 12, 1, '2ad', '2023-06-18 07:56:47', '2023-06-18 06:51:39', '2023-06-18 07:56:47'),
@@ -297,7 +298,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `usertype`, `email_verified_at`, `password`, `avatar`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', '1', NULL, '$2y$10$c8vuOHKVJUvWWwE3a4JWyeKbq5z5ddqlcpwxyT7cUvhtyHA/I7Ski', NULL, 'xIFGZmMAQCpPNoyrg439gVbtNnwaWOdTOvLaujiN3cJMWQ36Mht3FODfG15p', '2023-05-01 07:26:54', '2023-11-16 01:56:22', NULL),
+(1, 'Admin', 'admin@gmail.com', '1', NULL, '$2y$10$c8vuOHKVJUvWWwE3a4JWyeKbq5z5ddqlcpwxyT7cUvhtyHA/I7Ski', NULL, 'Sig3OwXoayLDwkdPyPfni7E5YOMRS6SEzbJQxmdSRTPyg7PpI1pAUW4WgoKH', '2023-05-01 07:26:54', '2023-11-16 01:56:22', NULL),
 (12, 'adminisitrator', 'administrator@gmail.com', '2', NULL, '$2y$10$aqmphxWtdmLNXw.lDq6GBOfnzOuv9/pcS5TXFqihPNF.tpqfqPV.O', NULL, '90F2qQP9psz2GeOGCVSaryy6UUZPEjaKk3uazGqy8wyNuFUfcQhnbWKlhH3V', '2023-06-13 21:15:20', '2023-06-13 21:15:20', NULL),
 (16, 'gunawan sinaga', 'gunawansinaga@gmail.com', '0', NULL, '$2y$10$X6O0.jQNzgVFmZbpyUIJzuOfIJx2Q.HT6PQpNcitW7UtrKXB6BOqW', 'favicon-96x96.png', NULL, '2023-06-15 21:16:34', '2023-06-18 08:50:35', NULL),
 (17, 'anita', 'anita@gmail.com', '0', NULL, '$2y$10$2I.38yyuus9.S0gf84Bfv.uh/pfqV8vTJZ1kTsPWh8AJey1RLqR2m', NULL, 'Tjwd2SrOo5ACUrktmOsugIoOyDRrTZRTJMyLdFv3ajFLGDtMjAwV5qDZZHDe', '2023-06-17 02:13:22', '2023-06-17 02:13:22', NULL),
@@ -404,7 +405,7 @@ ALTER TABLE `pesanans`
 -- AUTO_INCREMENT for table `pesanan_details`
 --
 ALTER TABLE `pesanan_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 
 --
 -- AUTO_INCREMENT for table `produk`
