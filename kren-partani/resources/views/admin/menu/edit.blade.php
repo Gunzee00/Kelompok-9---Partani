@@ -19,6 +19,14 @@
                                 @enderror
                             </div>
                             <div class="form-group">
+                                <input type="text" name="satuan_perpesanan" class="form-control" placeholder="Nama Produk" value="{{ $dataMenuUpdate->satuan_perpesanan }}">
+                                @error('satuan_perpesanan')
+                                    <div class="text-danger">
+                                        Masukkan Satuan Perpesanan
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
                                 <input type="number" name="harga" class="form-control" placeholder="Harga Produk" value="{{ $dataMenuUpdate->harga }}">
                                 @error('harga')
                                     <div class="text-danger">

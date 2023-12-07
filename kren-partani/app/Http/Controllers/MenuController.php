@@ -73,8 +73,9 @@ class MenuController extends Controller
             'keterangan' => 'required',
             'stok' => 'required',
             'satuan_perpesanan' => 'required',
+            
         ]);
-        $update = ['nama_produk' => $request->nama_produk, 'harga' => $request->harga, 'keterangan' => $request->keterangan, 'stok' => $request->stok, 'satuan_perpesanan' => $request->satuan_perpesanan];
+        $update = ['nama_produk' => $request->nama_produk, 'harga' => $request->harga, 'keterangan' => $request->keterangan, 'stok' => $request->stok,'satuan_perpesanan' => $request->satuan_perpesanan];
         if ($files = $request->file('nama_produk')) {
             $destinationPath = 'productimage/'; // upload path
             $profileImage = date('YmdHis') . "." . $files->getClientOriginalName();
