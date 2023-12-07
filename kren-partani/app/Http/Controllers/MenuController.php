@@ -34,6 +34,7 @@ class MenuController extends Controller
             'keterangan' => 'required',
             'stok' => 'required',
             'gambar_produk' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'satuan_perpesanan' => 'required',
         ]);
 
         $menu = Produk::create([
@@ -41,6 +42,7 @@ class MenuController extends Controller
             'harga' => $request->harga,
             'keterangan' => $request->keterangan,
             'stok' => $request->stok,
+            'satuan_perpesanan' => $request->satuan_perpesanan,
             'gambar_produk' => $request->gambar_produk,
         ]);
 
@@ -70,8 +72,9 @@ class MenuController extends Controller
             'harga' => 'required',
             'keterangan' => 'required',
             'stok' => 'required',
+            'satuan_perpesanan' => 'required',
         ]);
-        $update = ['nama_produk' => $request->nama_produk, 'harga' => $request->harga, 'keterangan' => $request->keterangan, 'stok' => $request->stok];
+        $update = ['nama_produk' => $request->nama_produk, 'harga' => $request->harga, 'keterangan' => $request->keterangan, 'stok' => $request->stok, 'satuan_perpesanan' => $request->satuan_perpesanan];
         if ($files = $request->file('nama_produk')) {
             $destinationPath = 'productimage/'; // upload path
             $profileImage = date('YmdHis') . "." . $files->getClientOriginalName();
@@ -82,6 +85,7 @@ class MenuController extends Controller
         $update['harga'] = $request->get('harga');
         $update['keterangan'] = $request->get('keterangan');
         $update['stok'] = $request->get('stok');
+        $update['satuan_perpesanan'] = $request->get('satuan_perpesanan');
         Produk::where('id', $id)->update($update);
         return Redirect::to('menu')
             ->with('toast_success', 'Sukses, Tiket berhasil di update');

@@ -73,7 +73,7 @@
               <img src="{{ url('productimage') }}/{{ $produk->gambar_produk }}" class="card-img-top" alt="{{ $produk->gambar_produk }}" style=" width:100%; height:100%; object-fit:scale-down;"/>
           </div>
           <div class="card-body">
-              <h5 class="card-title">{{ $produk->nama_produk }}</h5>
+              <h5 class="card-title">{{ $produk->nama_produk }}/ {{ $produk->satuan_perpesanan }}</h5>
               <p class="card-text">
                   <strong>Harga :</strong> Rp.{{ number_format($produk->harga) }} <br>
                   <strong>Stok :</strong> {{ $produk->stok }} <br>

@@ -19,6 +19,7 @@ class Produk extends Model
         'stok',
         'keterangan',
         'gambar_produk',
+        'satuan_perpesanan',
     ];
 
     public function pesanan_detail()

@@ -1,5 +1,8 @@
 @extends('admin.layouts.master')
 @section('content')
+@php
+    use Illuminate\Support\Str;
+@endphp
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
@@ -26,14 +29,17 @@
                                                 <h6>Harga</h6>
                                             </th>
                                             <th class="text-center">
+                                                <h6>Satuan Perpesanan</h6>
+                                            </th>
+                                            <th class="text-center">
                                                 <h6>Deskripsi</h6>
                                             </th>
                                             <th class="text-center">
                                                 <h6>Stok</h6>
                                             </th>
-                                            <th class="text-center">
+                                            {{-- <th class="text-center">
                                                 <h6>Gambar Produk</h6>
-                                            </th>
+                                            </th> --}}
                                             <th class="text-center">
                                                 <h6>Action</h6>
                                             </th>
@@ -45,7 +51,9 @@
                                                 <td class="text-center">{{ $index + $dataMenu->firstItem() }}</td>
                                                 <td class="text-center">{{ $data->nama_produk }}</td>
                                                 <td class="text-center">{{ $data->harga }}</td>
-                                                <td class="text-center">{{ $data->keterangan }}</td>
+                                                <td class="text-center">{{ $data->satuan_perpesanan }}</td>
+                                                <td class="text-center">{{ ($data->keterangan) }}</td>
+
                                                 <td class="text-center">
                                                     @if ($data->stok == 0)
                                                         <span class="text-danger">Stok Habis</span>
@@ -53,19 +61,13 @@
                                                         {{ $data->stok }}
                                                     @endif
                                                 </td>
-                                                <td class="text-center"><img src="productimage/{{ $data->gambar_produk }}"
-                                                        style="height: 100px; width:100px; align-item:center;"
-                                                        alt="produk"></td>
-                                                <td class="text-center">
-                                                    {{-- <a href="{{ url('/edit-menu/'.$data->id) }}"><button type="button" class="btn btn-warning btn-icon-text"><i class="ti-reload btn-icon-prepend"></i>Ubah</button></a>
-                                            <a href="{{ url('/delete/'.$data->id) }}"><button type="button" class="btn btn-danger btn-icon-text" data-id={{ $data->id }} data-name={{ $data->nama_produk }}><i class="mdi mdi-delete"></i>Hapus</button></a>
-                                             --}}
+                                                <td class="text-center" style="vertical-align: middle;">
                                                     <a href="{{ url('/edit-menu/' . $data->id) }}"  onclick="return confirm('Apakah Anda yakin ingin mengubah data ini?')">
                                                         <button type="button" class="btn btn-warning btn-icon-text">
                                                             <i class="ti-reload btn-icon-prepend"></i>Ubah
                                                         </button>
                                                     </a>
-
+                                                
                                                     <a href="{{ url('/delete/' . $data->id) }}"
                                                         onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                                                         <button type="button" class="btn btn-danger btn-icon-text"
@@ -75,6 +77,11 @@
                                                         </button>
                                                     </a>
                                                 </td>
+                                                
+                                            
+
+                                                    
+                                               
                                             </tr>
                                         @endforeach
                                     </tbody>

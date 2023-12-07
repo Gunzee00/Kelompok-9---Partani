@@ -12,7 +12,7 @@
                 <div class="container-fluid">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ url('list-menu') }}">Menu</a></li>
+                            {{-- <li class="breadcrumb-item"><a href="{{ url('list-menu') }}">Menu</a></li> --}}
                             <li class="breadcrumb-item">Check Out</li>
                         </ol>
                     </nav>

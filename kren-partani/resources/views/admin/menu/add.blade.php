@@ -6,7 +6,7 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Tambahkan Produk Masuk</h4>
+                        <h4 class="card-title">Tambahkan Produk</h4>
                         <form action="{{ route('add.menu.process') }}" method="post" enctype="multipart/form-data"
                             class="forms-sample">
                             @csrf
@@ -18,6 +18,16 @@
                                     </div>
                                 @enderror
                             </div>
+
+                            <div class="form-group">
+                                <input type="text" name="satuan_perpesanan" class="form-control" placeholder=" Satuan Perpesanan" value="{{ old('satuan_perpesanan') }}">
+                                @error('satuan_perpesanan')
+                                    <div class="text-danger">
+                                        Masukkan Satuan Perpesanan
+                                    </div>
+                                @enderror
+                            </div>
+
                             <div class="form-group">
                                 <input type="number" name="harga" class="form-control" placeholder="Harga Produk" value="{{ old('harga') }}">
                                 @error('harga')
