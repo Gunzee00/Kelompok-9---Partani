@@ -49,7 +49,7 @@
                                             <td>{{ $produk->keterangan }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Tanggal Pemesanan Produk</td>
+                                            <td>Tanggal Produk di Butuhkan</td>
                                             <td>:</td>
                                             <td>
                                                 <input type="date" name="tanggal_produk_diperlukan" id="" class="form-control" required

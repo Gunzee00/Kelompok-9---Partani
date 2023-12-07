@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Agen;
 use App\Models\User;
 use App\Models\Barang;
+use App\Models\Produk;
 use App\Models\Artikel;
 use App\Models\Pesanan;
 use App\Models\Contactus;
@@ -29,7 +30,7 @@ class HomeController extends Controller
     public function index()
     {
         // $dataCustomers = User::all()->where('usertype', 0);
-        // $artikel = Artikel::latest()->take(3)->get();
+        $dataMenu = Produk::all();
 
         $usertype = Auth::user()->usertype;
         if ($usertype == '1') {
@@ -41,7 +42,7 @@ class HomeController extends Controller
                 "title" => "Dashboard"
             ]);
         } else {
-            return view('user.home',compact('artikel'));
+            return view('user.home',compact('dataMenu'));
         }
     }
 
