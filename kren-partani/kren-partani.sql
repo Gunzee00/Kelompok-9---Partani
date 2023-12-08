@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2023 at 09:48 AM
+-- Generation Time: Dec 08, 2023 at 03:11 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.9
 
@@ -70,22 +70,22 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penjualan_tiket`
+-- Table structure for table `penjualan_produk`
 --
 
-CREATE TABLE `penjualan_tiket` (
+CREATE TABLE `penjualan_produk` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `gambar_penjualan` varchar(255) NOT NULL,
+  `bukti_pengiriman` varchar(255) NOT NULL,
   `pesanan_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `penjualan_tiket`
+-- Dumping data for table `penjualan_produk`
 --
 
-INSERT INTO `penjualan_tiket` (`id`, `gambar_penjualan`, `pesanan_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO `penjualan_produk` (`id`, `bukti_pengiriman`, `pesanan_id`, `created_at`, `updated_at`) VALUES
 (4, 'WhatsApp Image 2023-06-19 at 09.34.07.jpeg', 86, '2023-06-18 20:30:45', '2023-06-18 20:30:45'),
 (5, 'WhatsApp Image 2023-06-18 at 22.23.23.jpeg', 87, '2023-06-19 00:19:14', '2023-06-19 00:19:14'),
 (6, 'WhatsApp Image 2023-06-19 at 09.34.07.jpeg', 88, '2023-06-19 00:28:40', '2023-06-19 00:28:40'),
@@ -100,7 +100,8 @@ INSERT INTO `penjualan_tiket` (`id`, `gambar_penjualan`, `pesanan_id`, `created_
 (15, 'glr_1.jpeg', 100, '2023-06-21 21:28:18', '2023-06-21 21:28:18'),
 (16, 'tiket (7).pdf', 102, '2023-06-23 00:38:25', '2023-06-23 00:38:25'),
 (17, '[11420037][Ujian_PASTI][Genap2022].pdf', 106, '2023-11-13 02:15:20', '2023-11-13 02:15:20'),
-(18, 'tiket (2).pdf', 108, '2023-11-16 01:54:12', '2023-11-16 01:54:12');
+(18, 'tiket (2).pdf', 108, '2023-11-16 01:54:12', '2023-11-16 01:54:12'),
+(19, 'chart.png', 114, '2023-12-07 19:09:02', '2023-12-07 19:09:02');
 
 -- --------------------------------------------------------
 
@@ -172,7 +173,10 @@ INSERT INTO `pesanans` (`id`, `user_id`, `tanggal_pemesanan`, `status`, `kode`, 
 (109, 29, '2023-11-16', '1', 8259, 20000, '', '2023-11-30', 16, 1, '2023-11-16 01:50:24', '2023-11-16 01:50:30'),
 (110, 30, '2023-11-21', '6', 1781, 20000, 'chart.png', '2023-11-23', 16, 1, '2023-11-20 23:43:16', '2023-11-28 00:32:48'),
 (111, 23, '2023-11-28', '2', 8266, 2000000, 'Diagram Tanpa Judul.drawio.png', '2023-11-30', 18, 1, '2023-11-27 23:30:41', '2023-11-28 00:30:29'),
-(112, 23, '2023-11-28', '3', 1689, 2040000, 'WhatsApp Image 2023-11-24 at 08.31.12.jpeg', '2023-11-30', 17, 1, '2023-11-28 01:08:24', '2023-12-05 00:54:00');
+(112, 23, '2023-11-28', '3', 1689, 2040000, 'WhatsApp Image 2023-11-24 at 08.31.12.jpeg', '2023-11-30', 17, 1, '2023-11-28 01:08:24', '2023-12-05 00:54:00'),
+(113, 23, '2023-12-07', '0', 1501, 40000, '', '2023-12-28', 16, 2, '2023-12-07 02:17:25', '2023-12-07 02:17:25'),
+(114, 36, '2023-12-08', '4', 5026, 20000, 'chart.png', '2023-12-09', 16, 1, '2023-12-07 18:40:04', '2023-12-07 19:09:02'),
+(115, 36, '2023-12-08', '0', 5680, 2000000, '', '2023-12-16', 17, 1, '2023-12-07 18:42:52', '2023-12-07 18:42:52');
 
 -- --------------------------------------------------------
 
@@ -225,7 +229,10 @@ INSERT INTO `pesanan_details` (`id`, `produk_id`, `pesanan_id`, `jumlah`, `jumla
 (134, 16, 110, 1, 20000, '2023-11-20 23:43:16', '2023-11-20 23:43:16'),
 (135, 18, 111, 2, 2000000, '2023-11-27 23:30:41', '2023-11-28 00:30:16'),
 (136, 17, 112, 1, 2000000, '2023-11-28 01:08:24', '2023-11-28 01:08:24'),
-(137, 16, 112, 2, 40000, '2023-12-05 00:49:03', '2023-12-05 00:49:03');
+(137, 16, 112, 2, 40000, '2023-12-05 00:49:03', '2023-12-05 00:49:03'),
+(138, 16, 113, 2, 40000, '2023-12-07 02:17:25', '2023-12-07 02:17:25'),
+(139, 16, 114, 1, 20000, '2023-12-07 18:40:04', '2023-12-07 18:40:04'),
+(140, 17, 115, 1, 2000000, '2023-12-07 18:42:52', '2023-12-07 18:42:52');
 
 -- --------------------------------------------------------
 
@@ -237,9 +244,11 @@ CREATE TABLE `produk` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama_produk` varchar(64) NOT NULL,
   `gambar_produk` varchar(255) NOT NULL,
+  `satuan_perpesanan` varchar(200) NOT NULL,
   `harga` int(20) NOT NULL,
   `stok` int(20) NOT NULL,
   `keterangan` varchar(255) NOT NULL,
+  `lokasi` varchar(200) NOT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -249,29 +258,30 @@ CREATE TABLE `produk` (
 -- Dumping data for table `produk`
 --
 
-INSERT INTO `produk` (`id`, `nama_produk`, `gambar_produk`, `harga`, `stok`, `keterangan`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Panci', '20230606064636.WhatsApp Image 2023-05-30 at 13.58.08.jpeg', 3423242, 9, 'sadadsdf', '2023-06-05 23:47:37', '2023-05-01 07:36:42', '2023-06-05 23:47:37'),
-(2, 'sadas', 'image (1).png', 21, 12, 'sadsad', '2023-05-19 00:58:55', '2023-05-19 00:55:11', '2023-05-19 00:58:55'),
-(3, 'Dewasa', 'wallhaven-vqz7qm_1920x1080.png', 15000, 95, '18 tahun ke atas', '2023-06-05 22:46:54', '2023-05-19 00:59:48', '2023-06-05 22:46:54'),
-(4, 'anak anak', 'pngwing.com.png', 10000, 33, '5 tahun ke atas', '2023-06-04 14:00:11', '2023-05-19 01:00:35', '2023-06-04 14:00:11'),
-(5, 'Dewasa', 'WhatsApp Image 2023-05-30 at 14.16.43.jpeg', 15000, 82, 'Hanya dapat digunakan di atas 17 tahun', '2023-06-08 00:25:18', '2023-06-05 23:47:34', '2023-06-08 00:25:18'),
-(6, 'Remaja', 'WhatsApp Image 2023-05-02 at 08.32.24.jpeg', 10000, 81, 'Digunakan 17 tahun kebawah', '2023-06-08 00:26:21', '2023-06-05 23:48:46', '2023-06-08 00:26:21'),
-(7, 'Dewasa', 'Gunawan Sinaga.png', 10000, 100, 'Hanya dapat digunakan di atas 17 tahun', '2023-06-08 00:30:56', '2023-06-08 00:04:32', '2023-06-08 00:30:56'),
-(8, 'Dewasa', 'WhatsApp Image 2023-05-29 at 14.11.07.jpeg', 15000, 100, 'Hanya dapat digunakan di atas 17 tahun', '2023-06-08 01:52:03', '2023-06-08 01:42:35', '2023-06-08 01:52:03'),
-(9, 'asdasasd', 'WhatsApp Image 2023-05-30 at 14.16.43.jpeg', 1231, 65, 'qwasdsaa', '2023-06-11 07:12:33', '2023-06-08 01:57:34', '2023-06-11 07:12:33'),
-(10, 'Remaja', 'pngaaa.com-5054053.png', 15000, 92, 'Dapat digunakan oleh anak umur 10 tahun sampai umur 16', '2023-06-10 05:39:09', '2023-06-08 19:23:22', '2023-06-10 05:39:09'),
-(11, 'Dewasa', 'Gunawan Sinaga.png', 15000, 96, 'Dapat digunakan oleh anak umur 16 tahun sampai lanjut', '2023-06-11 08:03:25', '2023-06-10 05:39:44', '2023-06-11 08:03:25'),
-(12, 'Remaja', 'LOGO1 (1).jpg', 5000, 86, 'Dapat digunakan oleh anak umur 10 tahun sampai umur 16', '2023-06-15 20:34:31', '2023-06-10 05:55:16', '2023-06-15 20:34:31'),
-(13, 'Manca Negara', 'book 3.jpg', 10000, 78, 'Tiket ini dapat digunakan oleh turis', '2023-06-15 20:34:35', '2023-06-10 06:00:20', '2023-06-15 20:34:35'),
-(15, 'Remaja', '20230615090740.Gunawan Sinaga.png', 15000, 100, 'Dapat digunakan oleh anak umur 10 tahun sampai umur 16', '2023-06-15 20:36:24', '2023-06-14 21:12:44', '2023-06-15 20:36:24'),
-(16, 'Cabai merah / 1000kg', '20231121083312.chart.png', 20000, 98, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2023-06-15 20:40:58', '2023-12-05 00:49:09'),
-(17, 'Bawang Merah / 1000 kg', '20231121083425.pngwing.com (3).png', 2000000, 99, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2023-06-15 20:42:19', '2023-12-05 00:49:09'),
-(18, 'Andaliman / 50Kg', '20231121084210.wallhaven-ex21vr_1920x1080.png', 1000000, 98, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', NULL, '2023-06-15 20:43:18', '2023-11-28 00:30:22'),
-(19, 'Wortel/ 50Kg', '20231121084331.gambar.jpg', 50000000, 100, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', NULL, '2023-06-15 20:43:55', '2023-11-21 01:49:43'),
-(21, 'adasd', 'glr_1.jpeg', 12, 1, '2ad', '2023-06-18 07:56:47', '2023-06-18 06:51:39', '2023-06-18 07:56:47'),
-(22, 'asdasasd', 'pelajar.jpeg', 123, 12, 'sadasd', '2023-06-19 07:16:32', '2023-06-19 07:16:27', '2023-06-19 07:16:32'),
-(23, 'Tiket Pelajar', 'WhatsApp Image 2023-06-16 at 10.57.05.jpeg', 15000, 100, 'di gunakan oleh pelajar', '2023-06-21 23:30:20', '2023-06-20 01:24:35', '2023-06-21 23:30:20'),
-(24, 'test', 'WhatsApp Image 2023-11-22 at 09.20.35.jpeg', 1231, 12, 'sadas', NULL, '2023-11-28 00:18:55', '2023-11-28 00:18:55');
+INSERT INTO `produk` (`id`, `nama_produk`, `gambar_produk`, `satuan_perpesanan`, `harga`, `stok`, `keterangan`, `lokasi`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Panci', '20230606064636.WhatsApp Image 2023-05-30 at 13.58.08.jpeg', '0', 3423242, 9, 'sadadsdf', '', '2023-06-05 23:47:37', '2023-05-01 07:36:42', '2023-06-05 23:47:37'),
+(2, 'sadas', 'image (1).png', '0', 21, 12, 'sadsad', '', '2023-05-19 00:58:55', '2023-05-19 00:55:11', '2023-05-19 00:58:55'),
+(3, 'Dewasa', 'wallhaven-vqz7qm_1920x1080.png', '0', 15000, 95, '18 tahun ke atas', '', '2023-06-05 22:46:54', '2023-05-19 00:59:48', '2023-06-05 22:46:54'),
+(4, 'anak anak', 'pngwing.com.png', '0', 10000, 33, '5 tahun ke atas', '', '2023-06-04 14:00:11', '2023-05-19 01:00:35', '2023-06-04 14:00:11'),
+(5, 'Dewasa', 'WhatsApp Image 2023-05-30 at 14.16.43.jpeg', '0', 15000, 82, 'Hanya dapat digunakan di atas 17 tahun', '', '2023-06-08 00:25:18', '2023-06-05 23:47:34', '2023-06-08 00:25:18'),
+(6, 'Remaja', 'WhatsApp Image 2023-05-02 at 08.32.24.jpeg', '0', 10000, 81, 'Digunakan 17 tahun kebawah', '', '2023-06-08 00:26:21', '2023-06-05 23:48:46', '2023-06-08 00:26:21'),
+(7, 'Dewasa', 'Gunawan Sinaga.png', '0', 10000, 100, 'Hanya dapat digunakan di atas 17 tahun', '', '2023-06-08 00:30:56', '2023-06-08 00:04:32', '2023-06-08 00:30:56'),
+(8, 'Dewasa', 'WhatsApp Image 2023-05-29 at 14.11.07.jpeg', '0', 15000, 100, 'Hanya dapat digunakan di atas 17 tahun', '', '2023-06-08 01:52:03', '2023-06-08 01:42:35', '2023-06-08 01:52:03'),
+(9, 'asdasasd', 'WhatsApp Image 2023-05-30 at 14.16.43.jpeg', '0', 1231, 65, 'qwasdsaa', '', '2023-06-11 07:12:33', '2023-06-08 01:57:34', '2023-06-11 07:12:33'),
+(10, 'Remaja', 'pngaaa.com-5054053.png', '0', 15000, 92, 'Dapat digunakan oleh anak umur 10 tahun sampai umur 16', '', '2023-06-10 05:39:09', '2023-06-08 19:23:22', '2023-06-10 05:39:09'),
+(11, 'Dewasa', 'Gunawan Sinaga.png', '0', 15000, 96, 'Dapat digunakan oleh anak umur 16 tahun sampai lanjut', '', '2023-06-11 08:03:25', '2023-06-10 05:39:44', '2023-06-11 08:03:25'),
+(12, 'Remaja', 'LOGO1 (1).jpg', '0', 5000, 86, 'Dapat digunakan oleh anak umur 10 tahun sampai umur 16', '', '2023-06-15 20:34:31', '2023-06-10 05:55:16', '2023-06-15 20:34:31'),
+(13, 'Manca Negara', 'book 3.jpg', '0', 10000, 78, 'Tiket ini dapat digunakan oleh turis', '', '2023-06-15 20:34:35', '2023-06-10 06:00:20', '2023-06-15 20:34:35'),
+(15, 'Remaja', '20230615090740.Gunawan Sinaga.png', '0', 15000, 100, 'Dapat digunakan oleh anak umur 10 tahun sampai umur 16', '', '2023-06-15 20:36:24', '2023-06-14 21:12:44', '2023-06-15 20:36:24'),
+(16, 'Cabai merah', '20231121083312.chart.png', '1000 kg', 20000, 97, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'Balige', NULL, '2023-06-15 20:40:58', '2023-12-07 18:40:13'),
+(17, 'Bawang Merah', '20231121083425.pngwing.com (3).png', '1000 kg', 2000000, 99, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'Laguboti', NULL, '2023-06-15 20:42:19', '2023-12-07 02:46:09'),
+(18, 'Andaliman', '20231121084210.wallhaven-ex21vr_1920x1080.png', '1000 kg', 1000000, 98, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Laguboti', NULL, '2023-06-15 20:43:18', '2023-12-07 02:46:18'),
+(19, 'Wortel', '20231121084331.gambar.jpg', '1000 kg', 50000000, 100, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', 'Porsea', NULL, '2023-06-15 20:43:55', '2023-12-07 02:47:15'),
+(21, 'adasd', 'glr_1.jpeg', '0', 12, 1, '2ad', '', '2023-06-18 07:56:47', '2023-06-18 06:51:39', '2023-06-18 07:56:47'),
+(22, 'asdasasd', 'pelajar.jpeg', '0', 123, 12, 'sadasd', '', '2023-06-19 07:16:32', '2023-06-19 07:16:27', '2023-06-19 07:16:32'),
+(23, 'Tiket Pelajar', 'WhatsApp Image 2023-06-16 at 10.57.05.jpeg', '0', 15000, 100, 'di gunakan oleh pelajar', '', '2023-06-21 23:30:20', '2023-06-20 01:24:35', '2023-06-21 23:30:20'),
+(24, 'test', 'WhatsApp Image 2023-11-22 at 09.20.35.jpeg', '0', 1231, 12, 'sadas', '', '2023-12-06 23:57:45', '2023-11-28 00:18:55', '2023-12-06 23:57:45'),
+(25, 'test ae', 'WhatsApp Image 2023-11-22 at 09.20.35.jpeg', '1000 kg', 1200000, 120, 'pesan ae', '', '2023-12-06 23:57:40', '2023-12-06 21:23:00', '2023-12-06 23:57:40');
 
 -- --------------------------------------------------------
 
@@ -298,7 +308,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `usertype`, `email_verified_at`, `password`, `avatar`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', '1', NULL, '$2y$10$c8vuOHKVJUvWWwE3a4JWyeKbq5z5ddqlcpwxyT7cUvhtyHA/I7Ski', NULL, 'Sig3OwXoayLDwkdPyPfni7E5YOMRS6SEzbJQxmdSRTPyg7PpI1pAUW4WgoKH', '2023-05-01 07:26:54', '2023-11-16 01:56:22', NULL),
+(1, 'Admin', 'admin@gmail.com', '1', NULL, '$2y$10$c8vuOHKVJUvWWwE3a4JWyeKbq5z5ddqlcpwxyT7cUvhtyHA/I7Ski', NULL, '5wpdB3O5hwHnR7syccFoVD73rd3d22etEmGKo6Hn892BbqOyYzJgBRzfkNjf', '2023-05-01 07:26:54', '2023-11-16 01:56:22', NULL),
 (12, 'adminisitrator', 'administrator@gmail.com', '2', NULL, '$2y$10$aqmphxWtdmLNXw.lDq6GBOfnzOuv9/pcS5TXFqihPNF.tpqfqPV.O', NULL, '90F2qQP9psz2GeOGCVSaryy6UUZPEjaKk3uazGqy8wyNuFUfcQhnbWKlhH3V', '2023-06-13 21:15:20', '2023-06-13 21:15:20', NULL),
 (16, 'gunawan sinaga', 'gunawansinaga@gmail.com', '0', NULL, '$2y$10$X6O0.jQNzgVFmZbpyUIJzuOfIJx2Q.HT6PQpNcitW7UtrKXB6BOqW', 'favicon-96x96.png', NULL, '2023-06-15 21:16:34', '2023-06-18 08:50:35', NULL),
 (17, 'anita', 'anita@gmail.com', '0', NULL, '$2y$10$2I.38yyuus9.S0gf84Bfv.uh/pfqV8vTJZ1kTsPWh8AJey1RLqR2m', NULL, 'Tjwd2SrOo5ACUrktmOsugIoOyDRrTZRTJMyLdFv3ajFLGDtMjAwV5qDZZHDe', '2023-06-17 02:13:22', '2023-06-17 02:13:22', NULL),
@@ -315,7 +325,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `usertype`, `email_verified_at`, `pa
 (28, 'tester', 'tester1@gmail.com', '0', NULL, '$2y$10$K1XG1kuQYGU6xU7C5jIfb.vgHS/6SevkOcQJ.uvyf.EvfaeU1bQ2W', NULL, NULL, '2023-09-01 01:44:48', '2023-09-01 01:44:48', NULL),
 (29, 'master', 'master12@gmail.com', '0', NULL, '$2y$10$5.BhHeId.j1BgoSpcEwBKujApYChDqu7mIxuJxWNrnbSXYeqzUDEO', NULL, NULL, '2023-09-01 01:53:17', '2023-09-01 01:53:17', NULL),
 (30, 'pembeli', 'pembeli@gmail.com', '0', NULL, '$2y$10$FilwzWlv/yhUaCekq5AwuO3ll7sQx8H99Qidn/iXdStWxUQn6G4Ru', NULL, NULL, '2023-11-13 02:12:44', '2023-11-13 02:12:44', NULL),
-(31, 'penjual', 'penjual@gmail.com', '1', NULL, '$2y$10$2bjgM3elrKjwnggoNUo9WOI1WlIYXTIEzmicVpnIVUufCYZI1M29e', NULL, NULL, '2023-11-13 02:14:09', '2023-11-13 02:14:09', NULL);
+(31, 'penjual', 'penjual@gmail.com', '1', NULL, '$2y$10$2bjgM3elrKjwnggoNUo9WOI1WlIYXTIEzmicVpnIVUufCYZI1M29e', NULL, NULL, '2023-11-13 02:14:09', '2023-11-13 02:14:09', NULL),
+(32, 'adlino', 'adlino@gmail.com', '0', NULL, '$2y$10$89s6v7JJ1UPM/TEMq2dq0uVZLS8KbQ7YASH02tJ/OSe.8mrJ8trUm', NULL, NULL, '2023-12-05 02:00:37', '2023-12-05 02:00:37', NULL),
+(33, 'tets', 'tets@gmail.com', '0', NULL, '$2y$10$aL291evBMr48uzdNZ7ZwNenCs86UZuJF1./QFGu3Mgj9YvzX/Y4.i', NULL, NULL, '2023-12-06 20:25:00', '2023-12-06 20:25:00', NULL),
+(34, 'testerq', 'testerq@gmail.com', '0', NULL, '$2y$10$w4jlLn8LfZxsIeBDBZ/9OuyXX6FTAe2EFwh/6wJsn26RRaFror3xO', NULL, NULL, '2023-12-06 20:30:35', '2023-12-06 20:30:35', NULL),
+(35, 'kol', 'kol@gmail.com', '0', NULL, '$2y$10$V1KuVxHm45Abp8jI.bIv6ew1Ef6FaWf8ChynupRRPWDT8Nsm.rZNu', NULL, NULL, '2023-12-06 21:40:58', '2023-12-06 21:40:58', NULL),
+(36, 'final', 'final@gmail.com', '0', NULL, '$2y$10$F85hYpuSlYkZfWaXULLJ.uZlVKjjAWplw5GxqjDFuuCoJCcp3AUFe', NULL, NULL, '2023-12-07 18:37:56', '2023-12-07 18:37:56', NULL);
 
 --
 -- Indexes for dumped tables
@@ -334,9 +349,9 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `penjualan_tiket`
+-- Indexes for table `penjualan_produk`
 --
-ALTER TABLE `penjualan_tiket`
+ALTER TABLE `penjualan_produk`
   ADD PRIMARY KEY (`id`),
   ADD KEY `penjualan_tiket_pesanan_id_foreign` (`pesanan_id`);
 
@@ -384,10 +399,10 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `penjualan_tiket`
+-- AUTO_INCREMENT for table `penjualan_produk`
 --
-ALTER TABLE `penjualan_tiket`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+ALTER TABLE `penjualan_produk`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -399,34 +414,34 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `pesanans`
 --
 ALTER TABLE `pesanans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT for table `pesanan_details`
 --
 ALTER TABLE `pesanan_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `penjualan_tiket`
+-- Constraints for table `penjualan_produk`
 --
-ALTER TABLE `penjualan_tiket`
+ALTER TABLE `penjualan_produk`
   ADD CONSTRAINT `penjualan_tiket_pesanan_id_foreign` FOREIGN KEY (`pesanan_id`) REFERENCES `pesanans` (`id`) ON DELETE CASCADE;
 COMMIT;
 
