@@ -126,6 +126,9 @@ Route::get('/restore/{id}', [HomeController::class, 'restore'])->name('restore.u
 
 Route::get('/restore-all', [HomeController::class, 'restoreAll'])->name('restore.all.user');
 
+//produk
+Route::get('detail-produk/{id}', [App\Http\Controllers\MenuController::class, 'detailproduk']);
+
 //galeri admin
 //gambar (blog)
 Route::get('/show-galeri', [GaleriController::class, 'index'])->name('show-galeri');

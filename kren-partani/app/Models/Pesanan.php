@@ -32,9 +32,9 @@ class Pesanan extends Model
         return $this->hasOne(Produk::class, 'id', 'produk_id');
     }
 
-    public function penjualan_tiket()
+    public function penjualan_produk()
     {
-        return $this->hasMany(PenjualanTiket::class, 'pesanan_id', 'id');
+        return $this->hasMany(PenjualanProduk::class, 'pesanan_id', 'id');
     }
 }
 

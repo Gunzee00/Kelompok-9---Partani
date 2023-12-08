@@ -66,32 +66,35 @@
 {{-- </div>
 
 <div class="container"> --}}
-    <div class="row">
-      @foreach ($dataMenu as $produk)
-      <div class="card row-sm-4" style="border: 1px solid rgb(1, 1, 1); margin:5px; width:350px; height:auto;justify-content:center; align-items:center;">
-          <div style="position:relative; width:300px; height:200px;">
-              <img src="{{ url('productimage') }}/{{ $produk->gambar_produk }}" class="card-img-top" alt="{{ $produk->gambar_produk }}" style=" width:100%; height:100%; object-fit:scale-down;"/>
-          </div>
-          <div class="card-body">
-              <h5 class="card-title">{{ $produk->nama_produk }}/ {{ $produk->satuan_perpesanan }}</h5>
-              <p class="card-text">
-                  <strong>Harga :</strong> Rp.{{ number_format($produk->harga) }} <br>
-                  <strong>Stok :</strong> {{ $produk->stok }} <br>
-                  <hr>
-                  <h>Keterangan : {{ substr($produk->keterangan, 0, 100) }}...</h> <br>
-              </p>
-              @if($produk->stok <= 0)
-                  <p class="text-danger">*Maaf, stok sudah habis.</p>
-                  <a href="{{ url('pesan') }}/{{ $produk->id }}" class="btn btn-secondaryw disabled"><i class="fas fa-shopping-cart"></i> Pesan</a>
-              @else
-                  <a href="{{ url('pesan') }}/{{ $produk->id }}" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Pesan</a>
-              @endif
-          </div>
-      </div>
-  @endforeach
-  
+   
+    <div class="row d-flex">
+        @foreach ($dataMenu as $produk)
+            <div class="card row-sm-4" style="border: 1px solid rgb(1, 1, 1); margin:5px; width:350px; height:auto; justify-content:center; align-items:center;">
+                 <a href="{{ url('/detail-produk') }}/{{ $produk->id }}" style="text-decoration: none; color: inherit; width:100%; height:100%;">
+                    <div style="position:relative; width:300px; height:200px;">
+                        <img src="{{ url('productimage') }}/{{ $produk->gambar_produk }}" class="card-img-top" alt="{{ $produk->gambar_produk }}" style=" width:100%; height:100%; object-fit:scale-down;"/>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $produk->nama_produk }}/ {{ $produk->satuan_perpesanan }}</h5>
+                        <p class="card-text">
+                            <strong>Harga :</strong> Rp.{{ number_format($produk->harga) }} <br>
+                            <strong>Lokasi :</strong> {{ $produk->lokasi }} <br>
+                            <hr>
+                            <h>Keterangan : {{ substr($produk->keterangan, 0, 100) }}...</h> <br>
+                        </p>
+                        @if($produk->stok <= 0)
+                            <p class="text-danger">*Maaf, stok sudah habis.</p>
+                            <a href="{{ url('pesan') }}/{{ $produk->id }}" class="btn btn-secondary disabled"><i class="fas fa-shopping-cart"></i> Pesan</a>
+                        @else
+                            <a href="{{ url('pesan') }}/{{ $produk->id }}" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Pesan</a>
+                        @endif
+                    </div>
+                </a>
+            </div>
+        @endforeach
     </div>
-</div>
+    
+
         <section class="section" id="our-classes">
             <div class="container">
                 <div class="row">

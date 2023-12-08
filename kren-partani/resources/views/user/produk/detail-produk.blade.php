@@ -5,9 +5,13 @@
 @section('content')
     <div class="container">
         <div class="row">
+            {{-- <div class="col-md-12">
+                <a href="{{ url('list-menu') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
+            </div> --}}
             <div class="col-md-12 mt-2">
                 <div class="container-fluid">
-                    <nav aria-label="breadcrumb">                        
+                    <nav aria-label="breadcrumb">
+                        
                     </nav>
                 </div>
             </div>
@@ -30,6 +34,11 @@
                                             <td>Harga</td>
                                             <td>:</td>
                                             <td>Rp. {{ number_format($produk->harga) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lokasi</td>
+                                            <td>:</td>
+                                            <td>{{ $produk->lokasi }}</td>
                                         </tr>
                                         <tr>
                                             <td>Stok</td>
@@ -63,6 +72,7 @@
                                         </tr>
                                     </form>
                                 </table>
+                                
                             </div>
                         </div>
                     </div>

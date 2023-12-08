@@ -18,6 +18,7 @@ class Produk extends Model
         'tanggal_produk_diperlukan',
         'stok',
         'keterangan',
+        'lokasi',
         'gambar_produk',
         'satuan_perpesanan',
     ];

@@ -5,16 +5,11 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <a href="{{ url('home') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
-            </div>
+           
             <div class="col-md-12 mt-3">
                 <div class="container-fluid">
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ url('list-menu') }}">Menu</a></li>
-                            <li class="breadcrumb-item">Check Out</li>
-                        </ol>
+                        
                     </nav>
                 </div>
             </div>
@@ -23,18 +18,18 @@
                     <div class="card-header">
                         <h4><i class="fa fa-shopping-cart">Check Out</i></h4>
                         @if (!empty($pesanan))
-                            <p class="text-end">Tanggal Pesan : {{ $pesanan->tanggal }}</p>
+                            <p class="text-end">Tanggal Pesan : {{ $pesanan->tanggal_pemesanan }}</p>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <tr>
                                 <th>No</th>
                                 <th>Gambar</th>
-                                <th>Jenis Tiket</th>
+                                <th>Nama Produk</th>
                                 <th>Jumlah</th>
                                 <th>Harga</th>
-                                <th>Tanggal Tiket</th>
-                                <th>Total Harga</th>
+                                <th>Tanggal Barang</th>
+                                <th>Harga</th>
                                 <th>Aksi</th>
                             </tr>
                             <?php

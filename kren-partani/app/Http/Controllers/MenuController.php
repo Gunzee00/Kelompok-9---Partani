@@ -19,6 +19,15 @@ class MenuController extends Controller
         ], compact('dataMenu'));
     }
 
+    public function detailproduk($id)
+    {
+        $produk = Produk::where('id', $id)->first();
+        $jumlah = PesananDetail::all();
+        return view('user.produk.detail-produk', [
+            "title" => 'Detail Produk'
+        ], compact('produk', 'jumlah'));
+    }   
+
     public function menu()
     {
         return view('admin.menu.add', [
@@ -33,6 +42,7 @@ class MenuController extends Controller
             'harga' => 'required',
             'keterangan' => 'required',
             'stok' => 'required',
+            'lokasi' => 'required',
             'gambar_produk' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'satuan_perpesanan' => 'required',
         ]);
@@ -42,6 +52,7 @@ class MenuController extends Controller
             'harga' => $request->harga,
             'keterangan' => $request->keterangan,
             'stok' => $request->stok,
+            'lokasi' => $request->stok,
             'satuan_perpesanan' => $request->satuan_perpesanan,
             'gambar_produk' => $request->gambar_produk,
         ]);
@@ -72,10 +83,11 @@ class MenuController extends Controller
             'harga' => 'required',
             'keterangan' => 'required',
             'stok' => 'required',
+            'lokasi' => 'required',
             'satuan_perpesanan' => 'required',
             
         ]);
-        $update = ['nama_produk' => $request->nama_produk, 'harga' => $request->harga, 'keterangan' => $request->keterangan, 'stok' => $request->stok,'satuan_perpesanan' => $request->satuan_perpesanan];
+        $update = ['nama_produk' => $request->nama_produk, 'harga' => $request->harga, 'keterangan' => $request->keterangan, 'stok' => $request->stok,'satuan_perpesanan' => $request->satuan_perpesanan, 'lokasi' => $request->lokasi];
         if ($files = $request->file('nama_produk')) {
             $destinationPath = 'productimage/'; // upload path
             $profileImage = date('YmdHis') . "." . $files->getClientOriginalName();
@@ -87,6 +99,7 @@ class MenuController extends Controller
         $update['keterangan'] = $request->get('keterangan');
         $update['stok'] = $request->get('stok');
         $update['satuan_perpesanan'] = $request->get('satuan_perpesanan');
+        $update['lokasi'] = $request->get('lokasi');
         Produk::where('id', $id)->update($update);
         return Redirect::to('menu')
             ->with('toast_success', 'Sukses, Tiket berhasil di update');

@@ -10,16 +10,7 @@ class PesananDetail extends Model
 {
       use HasFactory;
 
-      // public function barang()
-      // {
-      //     return $this->belongTo('App\Barang', 'barang_id', 'id');
-      // }
-
-      // public function pesanan()
-      // {
-      //     return $this->belongTo('App\Pesanan', 'pesanan_id', 'id');
-      // }
-
+     
 
       public function produk()
       {

@@ -5,17 +5,17 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            {{-- <div class="col-md-12">
                 <a href="{{ url('pesanan') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
-            </div>
+            </div> --}}
             <div class="col-md-12 mt-3">
                 <div class="container-fluid">
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
+                        {{-- <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('/list-menu') }}">Menu</a></li>
                             <li class="breadcrumb-item"><a href="{{ url('pesanan') }}">Pesanan</a></li>
                             <li class="breadcrumb-item">Detail Pemesanan</li>
-                        </ol>
+                        </ol> --}}
                     </nav>
                 </div>
             </div>
@@ -135,12 +135,11 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Gambar</th>
-                                    <th>Nama Tiket</th>
-                                    <th>Jumlah</th>
+                                    <th>Nama Produk</th>
+                                    <th>Jumlah Pesanan  </th>
                                     <th>Harga</th>
-                                    <th>Tanggal Tiket</th>
-                                    <th style="width: 120px">Total Harga</th>
-                                    {{-- <th>Action</th> --}}
+                                    <th>Tanggal Barang di Perlukan </th>
+                                    <th style="width: 120px">Total Harga</th>                                  
                                 </tr>
                                 <?php
                                 $no = 1;
@@ -153,39 +152,15 @@
                                              style="width: 100px; height:100px;" class="card-img-top"  alt="product image" />
                                      </td>
                                      <td>{{ $pesanan_detail->produk->nama_produk }}</td>
-                                     <td>{{ $pesanan_detail->jumlah }} buah</td>
+                                     <td>{{ $pesanan_detail->jumlah }} </td>
                                      <td>Rp. {{ number_format($pesanan_detail->produk->harga) }}</td>
                                      <td>{{ $pesanan_detail->pesanan->tanggal_produk_diperlukan }}</td>
-                                     <td>Rp. {{ number_format($pesanan_detail->jumlah_harga) }}</td>
-                                     {{-- <td>
-                                         <form action="{{ url('check-out') }}/{{ $pesanan_detail->id }}" method="post">
-                                             @csrf
-                                             {{ method_field('DELETE') }}
-                                             <button type="submit" class="btn btn-danger btn-sm"
-                                                 onclick="return confirm('Yakin Ingin Menghapus tiket?');">
-                                                 <i class="fa fa-trash"></i>
-                                             </button>
-                                         </form>
-                                     </td> --}}
+                                     <td>Rp. {{ number_format($pesanan_detail->jumlah_harga) }}</td>                                     
                                  </tr>
-                             @endforeach
-                               
-                                    {{-- <tr>
-                                        <td colspan="6" class="text-end" colspan="5"><strong>Total Pesanan:</strong></td>
-                                        <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
-                                    </tr> --}}
-                                {{-- <tr>
-                                    <td colspan="6" class="text-end" colspan="5"><strong>Kode Pesanan :</strong></td>
-                                    <td><strong>{{ $pesanan->kode }}</strong></td>
-                                </tr> --}}
+                             @endforeach                      
                                 <tr>
                                     <td colspan="6" class="text-end" colspan="5"><strong>Total Pembayaran :</strong></td>
                                     <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
-                                    {{-- <td>
-                                        <img src="{{ url('productimage') }}/{{ $pesanan->gambar }}"
-                                            style="width: 100px; height:100px;" class="card-img-top" alt="product image" />
-                                    </td> --}}
-                                    {{-- {{$pesanan->gambar}} --}}
                                     @if($pesanan->status == 1 )
                                     <td><strong><a href="{{ url('/upload/'.$pesanan->id) }}"><button class="btn btn-secondary">Masukkan Bukti Pembayaran</button></a></strong></td>
                                     @else

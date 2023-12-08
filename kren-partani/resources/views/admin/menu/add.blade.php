@@ -36,6 +36,15 @@
                                     </div>
                                 @enderror
                             </div>
+
+                            <div class="form-group">
+                                <input type="text" name="lokasi" class="form-control" placeholder="Lokasi Produk" value="{{ old('lokasi') }}">
+                                @error('lokasi')
+                                    <div class="text-danger">
+                                        Masukkan Lokasi
+                                    </div>
+                                @enderror
+                            </div>
                             <div class="form-group">
                                 <input type="text" name="keterangan" class="form-control"
                                     placeholder="Keterangan Produk"  value="{{ old('keterangan') }}" >

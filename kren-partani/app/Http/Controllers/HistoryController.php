@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Dompdf\Dompdf;
 use App\Models\User;
-use App\Models\PenjualanTiket;
+use App\Models\PenjualanProduk;
 use App\Models\Barang;
 use App\Models\Pesanan;
 use Illuminate\Http\Request;
@@ -45,11 +45,11 @@ class HistoryController extends Controller
     {
         $pesanan = Pesanan::where('id', $id)->first();
         $pesanan_details = PesananDetail::where('pesanan_id', $pesanan->id)->get();
-        $gambar_penjualan = PenjualanTiket::where('pesanan_id', $pesanan->id)->get();
+        $bukti_pengiriman = PenjualanProduk::where('pesanan_id', $pesanan->id)->get();
 
         return view('user.history.detail', [
             "title" => 'Pesanan | Detail Pemesanan'
-        ], compact('pesanan', 'pesanan_details', 'gambar_penjualan'));
+        ], compact('pesanan', 'pesanan_details', 'bukti_pengiriman'));
     }
 
     public function history()

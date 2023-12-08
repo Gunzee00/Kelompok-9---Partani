@@ -9,6 +9,7 @@ use App\Models\Pesanan;
 use Illuminate\Http\Request;
 use App\Models\PesananDetail;
 use App\Models\Tiket;
+use App\Models\Produk;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 

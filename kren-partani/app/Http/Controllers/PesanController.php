@@ -30,7 +30,7 @@ class PesanController extends Controller
         return view('user.pesan.index', [
             "title" => 'Pemesanan Menu'
         ], compact('produk', 'jumlah'));
-    }
+    }   
 
 
     public function pesan(Request $request, $id)
@@ -292,7 +292,7 @@ class PesanController extends Controller
             foreach ($images as $image) {
                 $filename = $image->getClientOriginalName();
                 $image->move('pdf/', $filename);
-                $dataConfirmPhotoProcess->penjualan_tiket()->create(['gambar_penjualan' => $filename]);
+                $dataConfirmPhotoProcess->penjualan_produk()->create(['bukti_pengiriman' => $filename]);
             }
 
             $dataConfirmPhotoProcess->status = 4;

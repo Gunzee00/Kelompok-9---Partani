@@ -37,9 +37,9 @@
                                             <th class="text-center">
                                                 <h6>Stok</h6>
                                             </th>
-                                            {{-- <th class="text-center">
-                                                <h6>Gambar Produk</h6>
-                                            </th> --}}
+                                            <th class="text-center">
+                                                <h6>Lokasi Produk</h6>
+                                            </th>
                                             <th class="text-center">
                                                 <h6>Action</h6>
                                             </th>
@@ -61,6 +61,7 @@
                                                         {{ $data->stok }}
                                                     @endif
                                                 </td>
+                                                <td class="text-center">{{ ($data->lokasi) }}</td>
                                                 <td class="text-center" style="vertical-align: middle;">
                                                     <a href="{{ url('/edit-menu/' . $data->id) }}"  onclick="return confirm('Apakah Anda yakin ingin mengubah data ini?')">
                                                         <button type="button" class="btn btn-warning btn-icon-text">

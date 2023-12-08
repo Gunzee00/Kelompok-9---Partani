@@ -5,16 +5,16 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            {{-- <div class="col-md-12">
                 <a href="{{ url('/list-menu') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
-            </div>
+            </div> --}}
             <div class="col-md-12 mt-3">
                 <div class="container-fluid">
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
+                        {{-- <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('/list-menu') }}">Menu</a></li>
                             <li class="breadcrumb-item">Pesanan</li>
-                        </ol>
+                        </ol> --}}
                     </nav>
                 </div>
             </div>
